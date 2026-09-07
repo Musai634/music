@@ -1,67 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ALIS ULTRA FINES — MUSAI</title>
-<meta name="description" content="ALIS ULTRA FINES — MUSAI. With wings beyond the boundaries.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ALIS ULTRA FINES — MUSAI">
-<meta property="og:description" content="With wings beyond the boundaries.">
-<meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
-<meta property="og:image:alt" content="ALIS ULTRA FINES album jacket">
-<meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/">
+<meta name="description" content="ALIS ULTRA FINES — MUSAI">
 <style>
-
 :root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
-.wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
-.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
-.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
-h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
-button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:pointer}
-.play{background:var(--red);color:white;font-size:17px}.sub{background:#eee;margin-left:8px}
-.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
-.credits{line-height:1.8;margin-top:18px}
-.content{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:38px}
-.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
-.card h2{font-size:21px;margin:0 0 20px}
-.lyrics{height:570px;overflow:auto;scroll-behavior:smooth}
-.line{font-size:21px;line-height:1.75;color:#aaa;padding:3px 0;transition:.18s}
-.line.active{color:var(--text);font-weight:700;transform:scale(1.01);transform-origin:left}
-.note{font-size:17px;line-height:1.9}
-.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
-.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-audio{width:100%;margin-top:8px}
-@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
-
-.tracklist{margin-top:26px}
-.track{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--text)}
-.track-num{color:var(--muted);width:28px}
-.track-name{flex:1;font-size:18px;text-align:left}
-.track-arrow{color:var(--red);font-weight:700}
-@media(max-width:760px){.cover{max-width:100%;width:100%;height:auto}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:34px}
+.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:start}
+.cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:38px;font-weight:400;margin:12px 0 8px}
+.artist{font-size:17px;color:var(--muted)}
+.tagline{margin-top:18px;color:#555;line-height:1.7}
+.content{margin-top:36px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h2{font-size:18px;margin:0 0 16px}
+.track{display:flex;align-items:center;gap:16px;padding:16px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--text)}
+.track:first-of-type{border-top:0}
+.num{color:var(--muted);width:28px}
+.track-title{flex:1;font-size:17px}
+.play{color:var(--red);font-size:14px}
+footer{text-align:center;color:#999;font-size:13px;margin-top:34px}
+@media(max-width:760px){
+.wrap{padding:18px}
+.hero{grid-template-columns:1fr}
+h1{font-size:30px}
+.content{margin-top:28px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-<section class="hero">
+<div class="hero">
+<div>
 <img class="cover" src="cover.jpg" alt="ALIS ULTRA FINES album jacket">
+</div>
 <div>
 <h1>ALIS ULTRA FINES</h1>
 <div class="artist">MUSAI</div>
-<div class="meta">With wings beyond the boundaries.</div>
-<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
+<div class="tagline">With wings beyond the boundaries.</div>
 </div>
-</section>
-<section class="content">
+</div>
+
+<div class="content">
 <div class="card">
 <h2>Tracks</h2>
-<div class="tracklist">
-<a class="track" href="hikari/"><span class="track-num">01</span><span class="track-name">Hikari Is My Name</span><span class="track-arrow">▶</span></a>
+
+<a class="track" href="hikari/">
+<span class="num">01</span>
+<span class="track-title">Hikari Is My Name</span>
+<span class="play">▶</span>
+</a>
+
+<a class="track" href="kimi-ga-sukida/">
+<span class="num">02</span>
+<span class="track-title">君が好きだ</span>
+<span class="play">▶</span>
+</a>
+
 </div>
 </div>
-</section>
+
+<footer>Music by MUSAI</footer>
 </div>
 </body>
 </html>
