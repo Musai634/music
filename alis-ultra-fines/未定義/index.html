@@ -10,7 +10,7 @@
 <meta property="og:description" content="ALIS ULTRA FINES — With wings beyond the boundaries.">
 <meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
 <meta property="og:image:alt" content="ALIS ULTRA FINES album jacket">
-<meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/hikari/">
+<meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/mitei/">
 <style>
 
 :root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
@@ -49,7 +49,7 @@ audio{width:100%;margin-top:8px}
 <div class="artist">MUSAI</div>
 <button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
 <div class="meta">1曲　·　約3分</div>
-<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：SUNOSuno</div>
+<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
 <a class="album-link" href="../">← ALIS ULTRA FINES</a><br>
 <a class="download" href="未定義.mp3" download>MP3をダウンロード</a>
 </div>
@@ -72,31 +72,31 @@ audio{width:100%;margin-top:8px}
 </div>
 </div>
 <script>
-const lrc = `[Aメロ]
-横に座るお前の　いつものばかがお
-シワと白髪の中に　変わらぬ笑い声
+const lrc = `[00:31.0]横に座るお前の　
+[00:35.0]いつものばかがお
+[00:39.0]シワと白髪の中に　
+[00:43.0]変わらぬ笑い声
+[00:48.0]雪と波と排気ガスに　
+[00:51.0]重ねた安酒
+[00:55.0]やっぱりあの子は　
+[00:58.0]俺の方が好きだった
+[01:02.0]歌おうぜもっと　
+[01:06.0]踊ろうぜもっと
+[01:10.0]夢を描こうぜもっと　
+[01:13.0]俺たちは未定義
+[01:48.0]横に座るお前が　
+[01:53.0]握るハンドル
+[01:57.0]窓に映る街灯　
+[02:00.0]あの日の街角
+[02:05.0]雪と波と排気ガスに　
+[02:08.0]隠した痩せ我慢
+[02:12.0]やっぱりあの子も　
+[02:16.0]お前のことを見ていた
+[02:20.0]歌おうぜもっと　
+[02:24.0]踊ろうぜもっと
+[02:28.0]夢を描こうぜもっと　
+[02:31.0]俺たちは未定義`;
 
-[Bメロ]
-雪と波と排気ガスに　重ねた安酒
-やっぱりあの子は　俺の方が好きだった
-
-[Chorus]
-歌おうぜもっと　踊ろうぜもっと
-夢をかこうぜもっと　俺たちは未定義
-
-[Interlude]
-
-[Aメロ2]
-横に座るお前が　握るハンドル
-窓に映る街灯　あの日の街角
-
-[Bメロ2]
-雪と波と排気ガスに　隠した痩せ我慢
-やっぱりあの子も　お前のことを見ていた
-
-[Chorus]
-歌おうぜもっと　踊ろうぜもっと
-夢をかこうぜもっと　俺たちは未定義`;
 const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
 const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
 rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
