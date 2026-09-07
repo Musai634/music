@@ -9,27 +9,21 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
 .wrap{max-width:1100px;margin:auto;padding:34px}
+.back{display:inline-block;color:#555;text-decoration:none;margin-bottom:20px;font-size:15px}
 .hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:start}
 .cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px}
-.back{display:inline-block;color:#555;text-decoration:none;margin-bottom:18px}
-h1{font-size:38px;margin:12px 0 8px}
-.artist{font-size:17px;color:var(--muted)}
+h1{font-size:38px;margin:12px 0 8px} .artist{font-size:17px;color:var(--muted)}
 .content{display:grid;grid-template-columns:1fr 330px;gap:24px;margin-top:36px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
 .card h2{font-size:18px;margin:0 0 16px}
-.lyrics{height:500px;overflow-y:auto;line-height:1.9}
-.line{margin:0 0 4px}
-audio{width:100%}
+.lyrics{height:500px;overflow-y:auto;line-height:1.9;padding-right:8px}
+.lyric-line{margin:0 0 7px;padding:2px 8px;border-radius:7px;transition:.15s}
+.lyric-line.active{color:var(--red);font-weight:600;background:#fff1f3}
+.audio-card audio,.player audio{width:100%;display:block}
 .download{display:block;margin-top:14px;color:var(--red);text-decoration:none}
 .credit{color:#666;line-height:1.8}
-.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:14px 34px;background:rgba(247,247,248,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-@media(max-width:760px){
-.wrap{padding:18px}
-.hero,.content{grid-template-columns:1fr}
-h1{font-size:30px}
-.lyrics{height:430px}
-.player{margin:28px -18px -18px;padding:14px 18px}
-}
+.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:14px 34px;background:rgba(247,247,248,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr}h1{font-size:30px}.lyrics{height:430px}.player{margin:28px -18px -18px;padding:14px 18px}}
 </style>
 </head>
 <body>
@@ -42,36 +36,35 @@ h1{font-size:30px}
 <div class="content">
 <div class="card">
 <h2>歌詞</h2>
-<div class="lyrics">
-<p class="line">太陽が昇る</p>
-<p class="line">湖の彼方から</p>
-<p class="line">通り行く光線で</p>
-<p class="line">コーヒーの湯気が揺れる</p><br>
-<p class="line">今、電話切ったとこさ</p>
-<p class="line">声が耳に残るよ</p>
-<p class="line">朝の摩天楼見つめて</p>
-<p class="line">僕の時間が止まる</p><br>
-<p class="line">君が好きだ</p>
-<p class="line">時差を超えて突き抜ける</p>
-<p class="line">東京まで飛んで行け</p>
-<p class="line">僕の声　僕の歌</p><br>
-<p class="line">夕日が沈む</p>
-<p class="line">東京の君の窓</p>
-<p class="line">遠く霞む街</p>
-<p class="line">映るスタンドの灯り</p><br>
-<p class="line">今、何してるのかな</p>
-<p class="line">君も空を見てるかな</p>
-<p class="line">長い夜を越えるたびに</p>
-<p class="line">君の笑みが浮かぶ</p><br>
-<p class="line">君が好きだ</p>
-<p class="line">海を超えて突き抜ける</p>
-<p class="line">東京まで届けたい</p>
-<p class="line">僕の声　僕の歌</p>
-</div></div>
+<div class="lyrics" id="lyrics"><div class="lyric-line" data-time="17.00">太陽が昇る</div>
+<div class="lyric-line" data-time="21.00">湖の彼方から</div>
+<div class="lyric-line" data-time="26.00">通り行く光線で</div>
+<div class="lyric-line" data-time="29.00">コーヒーの湯気が揺れる</div>
+<div class="lyric-line" data-time="33.00">今、電話切ったとこさ</div>
+<div class="lyric-line" data-time="37.00">声が耳に残るよ</div>
+<div class="lyric-line" data-time="41.00">朝の摩天楼見つめて</div>
+<div class="lyric-line" data-time="45.00">僕の時間が止まる</div>
+<div class="lyric-line" data-time="50.00">君が好きだ</div>
+<div class="lyric-line" data-time="53.00">時差を超えて突き抜ける</div>
+<div class="lyric-line" data-time="57.00">東京まで飛んで行け</div>
+<div class="lyric-line" data-time="61.00">僕の声　僕の歌</div>
+<div class="lyric-line" data-time="100.00">夕日が沈む</div>
+<div class="lyric-line" data-time="104.00">東京の君の窓</div>
+<div class="lyric-line" data-time="108.00">遠く霞む街</div>
+<div class="lyric-line" data-time="112.00">映るスタンドの灯り</div>
+<div class="lyric-line" data-time="117.00">今、何してるのかな</div>
+<div class="lyric-line" data-time="121.00">君も空を見てるかな</div>
+<div class="lyric-line" data-time="124.00">長い夜を越えるたびに</div>
+<div class="lyric-line" data-time="128.00">君の笑みが浮かぶ</div>
+<div class="lyric-line" data-time="133.00">君が好きだ</div>
+<div class="lyric-line" data-time="136.00">海を超えて突き抜ける</div>
+<div class="lyric-line" data-time="140.00">東京まで届けたい</div>
+<div class="lyric-line" data-time="144.00">僕の声　僕の歌</div></div>
+</div>
 <div>
-<div class="card">
+<div class="card audio-card">
 <h2>再生</h2>
-<audio controls preload="metadata" src="君が好きだ.mp3"></audio>
+<audio id="audio" controls preload="metadata" src="君が好きだ.mp3"></audio>
 <a class="download" href="君が好きだ.mp3" download>MP3をダウンロード</a>
 </div>
 <div class="card" style="margin-top:24px">
@@ -82,5 +75,18 @@ h1{font-size:30px}
 </div>
 <div class="player"><audio controls preload="metadata" src="君が好きだ.mp3"></audio></div>
 </div>
+<script>
+const audio=document.getElementById('audio');
+const lyricBox=document.getElementById('lyrics');
+const lines=[...document.querySelectorAll('.lyric-line')];
+function syncLyrics(){
+  const t=audio.currentTime;
+  let active=-1;
+  for(let i=0;i<lines.length;i++) if(parseFloat(lines[i].dataset.time)<=t) active=i;
+  lines.forEach((el,i)=>el.classList.toggle('active',i===active));
+  if(active>=0) lines[active].scrollIntoView({behavior:'smooth',block:'center'});
+}
+audio.addEventListener('timeupdate',syncLyrics);
+</script>
 </body>
 </html>
