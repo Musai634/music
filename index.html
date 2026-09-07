@@ -1,50 +1,85 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Musai Music Maison</title>
-<meta name="description" content="Musai Music Maison — MUSAI">
-<meta name="theme-color" content="#ffffff">
 
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<title>Musai Music Maison</title>
+<meta name="description" content="Musai Music Maison — Music by MUSAI.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Musai Music Maison">
-<meta property="og:description" content="MUSAI">
-<meta property="og:image" content="https://music.akasakahasegawa.com/musai-icon-512.png">
+<meta property="og:description" content="Music by MUSAI.">
+<meta property="og:image" content="https://music.akasakahasegawa.com/musai-music-maison-logo.png">
 <meta property="og:url" content="https://music.akasakahasegawa.com/">
 <meta property="og:site_name" content="Musai Music Maison">
 
 <style>
-:root{--navy:#071b62;--text:#111;--muted:#777;--line:#d9d9de}
+:root{--navy:#071d63;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
 *{box-sizing:border-box}
-body{margin:0;background:#f7f7f8;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
-.wrap{min-height:100vh;background:#fff;display:flex;flex-direction:column}
-.hero{min-height:calc(100vh - 72px);display:flex;align-items:center;justify-content:center;padding:50px 24px 70px}
-.inner{width:min(1050px,100%);text-align:center}
-.logo{display:block;width:min(900px,100%);height:auto;margin:0 auto 42px}
-.enter{display:inline-block;padding:15px 62px;border:1px solid var(--navy);color:var(--navy);text-decoration:none;font-size:15px;letter-spacing:.28em;transition:.2s}
-.enter:hover{background:var(--navy);color:#fff}
-.footer{border-top:1px solid var(--line);padding:22px 24px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.18em}
-@media(max-width:700px){
-.hero{min-height:calc(100vh - 60px);padding:30px 18px 55px}
-.logo{margin-bottom:32px}
-.enter{padding:14px 48px;font-size:14px}
-.footer{padding:18px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;background:#fff;min-height:100vh;padding:34px}
+.logo{display:block;width:min(100%,1000px);height:auto;margin:0 auto}
+.nav{text-align:center;margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line)}
+.nav a{color:var(--navy);text-decoration:none;font-size:14px;letter-spacing:.16em;margin:0 14px}
+.content{margin-top:42px}
+.card{border:1px solid var(--line);border-radius:16px;padding:26px;background:#fff}
+.card h2{font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:400;margin:0 0 8px;color:var(--navy)}
+.subtitle{color:var(--muted);margin-bottom:22px}
+.album{display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:center}
+.album-cover{width:100%;border-radius:12px;display:block}
+.tracks{list-style:none;margin:0;padding:0}
+.track{display:flex;align-items:center;border-top:1px solid var(--line);padding:14px 0;text-decoration:none;color:var(--text)}
+.track:first-child{border-top:0}
+.num{width:34px;color:var(--muted)}
+.title{flex:1;font-size:17px}
+.arrow{color:var(--navy)}
+.button{display:inline-block;margin-top:20px;padding:11px 24px;border:1px solid var(--navy);color:var(--navy);text-decoration:none;letter-spacing:.12em;font-size:13px}
+footer{text-align:center;color:#999;font-size:12px;margin-top:44px;padding-top:20px;border-top:1px solid var(--line)}
+@media(max-width:760px){
+.wrap{padding:18px}
+.logo{width:100%}
+.nav a{margin:0 7px;font-size:12px}
+.album{grid-template-columns:1fr;gap:22px}
+.album-cover{max-width:360px;margin:auto}
+.content{margin-top:30px}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-<main class="hero">
-<div class="inner">
+
 <img class="logo" src="musai-music-maison-logo.png" alt="Musai Music Maison">
-<a class="enter" href="alis-ultra-fines/">ENTER</a>
+
+<nav class="nav" aria-label="Main navigation">
+<a href="#albums">ALBUMS</a>
+</nav>
+
+<main class="content" id="albums">
+<section class="card">
+<div class="album">
+<div>
+<a href="alis-ultra-fines/" aria-label="ALIS ULTRA FINES"><img class="album-cover" src="alis-ultra-fines/cover.jpg" alt="ALIS ULTRA FINES album jacket"></a>
 </div>
+<div>
+<h2>ALIS ULTRA FINES</h2>
+<div class="subtitle">MUSAI</div>
+<ul class="tracks">
+<li><a class="track" href="alis-ultra-fines/hikari/"><span class="num">01</span><span class="title">Hikari Is My Name</span><span class="arrow">→</span></a></li>
+<li><a class="track" href="alis-ultra-fines/kimi-ga-sukida/"><span class="num">02</span><span class="title">君が好きだ</span><span class="arrow">→</span></a></li>
+<li><a class="track" href="alis-ultra-fines/sei-exo-akira-exotics/"><span class="num">03</span><span class="title">聖EXO -Akira Exotics</span><span class="arrow">→</span></a></li>
+<li><a class="track" href="alis-ultra-fines/未定義/"><span class="num">04</span><span class="title">未定義</span><span class="arrow">→</span></a></li>
+</ul>
+<a class="button" href="#albums">SELECT ALBUM →</a>
+</div>
+</div>
+</section>
 </main>
-<footer class="footer">MUSAI</footer>
+
+<footer>© 2026 Musai Music Maison. All rights reserved.</footer>
 </div>
 </body>
 </html>
