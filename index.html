@@ -29,7 +29,9 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,B
 .card{border:1px solid var(--line);border-radius:16px;padding:26px;background:#fff}
 .card h2{font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:400;margin:0 0 8px;color:var(--navy)}
 .subtitle{color:var(--muted);margin-bottom:22px}
-.album{display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:center}
+.albums{display:grid;gap:34px}
+.album{display:grid;grid-template-columns:220px 1fr;gap:30px;align-items:center;padding-top:26px;border-top:1px solid var(--line)}
+.album:first-child{padding-top:0;border-top:0}
 .album-cover{width:100%;border-radius:12px;display:block}
 .tracks{list-style:none;margin:0;padding:0}
 .track{display:flex;align-items:center;border-top:1px solid var(--line);padding:14px 0;text-decoration:none;color:var(--text)}
@@ -60,9 +62,14 @@ footer{text-align:center;color:#999;font-size:12px;margin-top:44px;padding-top:2
 
 <main class="content" id="albums">
 <section class="card">
+<h2>ALBUMS</h2>
+<div class="albums">
+
 <div class="album">
 <div>
-<a href="alis-ultra-fines/" aria-label="ALIS ULTRA FINES"><img class="album-cover" src="alis-ultra-fines/cover.jpg" alt="ALIS ULTRA FINES album jacket"></a>
+<a href="alis-ultra-fines/">
+<img class="album-cover" src="alis-ultra-fines/cover.jpg" alt="ALIS ULTRA FINES album jacket">
+</a>
 </div>
 <div>
 <h2>ALIS ULTRA FINES</h2>
@@ -73,8 +80,24 @@ footer{text-align:center;color:#999;font-size:12px;margin-top:44px;padding-top:2
 <li><a class="track" href="alis-ultra-fines/sei-exo-akira-exotics/"><span class="num">03</span><span class="title">聖EXO -Akira Exotics</span><span class="arrow">→</span></a></li>
 <li><a class="track" href="alis-ultra-fines/未定義/"><span class="num">04</span><span class="title">未定義</span><span class="arrow">→</span></a></li>
 </ul>
-<a class="button" href="#albums">SELECT ALBUM →</a>
 </div>
+</div>
+
+<div class="album">
+<div>
+<a href="kanda/">
+<img class="album-cover" src="kanda/cover.jpg" alt="司っ子だからね album jacket">
+</a>
+</div>
+<div>
+<h2>司っ子だからね</h2>
+<div class="subtitle">長谷川斉</div>
+<ul class="tracks">
+<li><a class="track" href="kanda/"><span class="num">01</span><span class="title">司っ子だからね</span><span class="arrow">→</span></a></li>
+</ul>
+</div>
+</div>
+
 </div>
 </section>
 </main>
