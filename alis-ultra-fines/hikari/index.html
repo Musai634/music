@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Hikari Is My Name — MUSAI</title>
 <meta name="description" content="Hikari Is My Name — MUSAI">
 <meta property="og:type" content="music.song">
 <meta property="og:title" content="Hikari Is My Name — MUSAI">
-<meta property="og:description" content="ALIS ULTRA FINES">
+<meta property="og:description" content="ALIS ULTRA FINES — With wings beyond the boundaries.">
 <meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
+<meta property="og:image:alt" content="ALIS ULTRA FINES album jacket">
 <meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/hikari/">
 <style>
 
@@ -34,80 +35,82 @@ button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:poin
 audio{width:100%;margin-top:8px}
 @media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
 
-.controls {
-  display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:18px 0 26px;
-}
-.controls a {
-  text-decoration:none; padding:9px 16px; border-radius:20px;
-  background:rgba(128,128,128,.12); color:inherit; font-size:14px;
-}
-.controls a:hover { background:rgba(128,128,128,.2); }
+.album-link{display:inline-block;margin-top:14px;color:var(--red);text-decoration:none;font-weight:700}
+.download{display:inline-block;margin-top:12px;color:var(--text);text-decoration:none}
+@media(max-width:760px){.cover{max-width:100%;width:100%;height:auto}}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="album-art">
-    <img src="../cover.jpg" alt="ALIS ULTRA FINES album jacket">
-  </div>
-  <h1>Hikari Is My Name</h1>
-  <div class="artist">MUSAI</div>
-  <audio id="audio" controls>
-    <source src="Hikari Is My Name.mp3" type="audio/mpeg">
-  </audio>
-  <div class="controls">
-    <a href="../">← ALIS ULTRA FINES</a>
-    <a href="Hikari Is My Name.mp3" download>↓ Download</a>
-  </div>
-  <div id="lyrics"></div>
+<div class="wrap">
+<section class="hero">
+<img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES ジャケット">
+<div>
+<h1>Hikari Is My Name</h1>
+<div class="artist">MUSAI</div>
+<button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
+<div class="meta">1曲　·　約3分</div>
+<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
+<a class="album-link" href="../">← ALIS ULTRA FINES</a><br>
+<a class="download" href="Hikari Is My Name.mp3" download>MP3をダウンロード</a>
+</div>
+</section>
+<section class="content">
+<div class="card">
+<h2>歌詞</h2>
+<div class="lyrics" id="lyrics"></div>
+</div>
+<div>
+<div class="card">
+<h2>ALIS ULTRA FINES</h2>
+<p class="note">With wings beyond the boundaries.</p>
+</div>
+</div>
+</section>
+<div class="player">
+<div class="time"><span id="cur">0:00</span><span>3:??</span></div>
+<audio id="audio" controls preload="metadata"><source src="Hikari Is My Name.mp3" type="audio/mpeg"></audio>
+</div>
 </div>
 <script>
-const lrc = `[00:00]明日が来れば　また走り出す
-[00:08]鼓動と汗と　飛べる気分
-[00:15]両手広げて　駆け上がる道
-[00:21]襟の桜は　いつも春の色
-[00:29]ねぇ目覚めて　遠くにいるの
-[00:36]君の声が　聞こえてくるでしょう
-[00:43]太陽の力を　名前に変えたから
-[00:50]これから行く道差して　教えてください
-[00:57]私の力を　優しさに変えたなら
-[01:04]君の行く空で見つけて　Hikari is my name
-[01:24]夢の彼方に　また踊り出す
-[01:32]調べと歌と　舞える気分
-[01:39]足ばやに急げ　メイプルの坂
-[01:46]レンガの壁超えて　赤くなれ
-[01:53]ねえ話して　そばにいるの
-[02:01]君の笑みが見えて　くるでしょう
-[02:08]太陽の心を　名前に変えたから
-[02:15]これから会う君探して　走ります
-[02:22]私の心を　強さに変えたなら
-[02:29]君のいる海で輝け　Hikari is my name`;
-const lines = lrc.split("\n").map(line => {
-  const m = line.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);
-  return m ? {time:Number(m[1])*60+Number(m[2]), text:m[3]} : null;
-}).filter(Boolean);
-
-const lyricsBox = document.getElementById("lyrics");
-lines.forEach((line, i) => {
-  const el = document.createElement("div");
-  el.className = "lyric";
-  el.textContent = line.text;
-  el.dataset.index = i;
-  lyricsBox.appendChild(el);
+const lrc = `[00:00.0]明日が来れば　また走り出す
+[00:08.0]鼓動と汗と　飛べる気分
+[00:15.0]両手広げて　駆け上がる道
+[00:21.0]襟の桜は　いつも春の色
+[00:29.0]ねぇ目覚めて　遠くにいるの
+[00:36.0]君の声が　聞こえてくるでしょう
+[00:43.0]太陽の力を　名前に変えたから
+[00:50.0]これから行く道差して　教えてください
+[00:57.0]私の力を　優しさに変えたなら
+[01:04.0]君の行く空で見つけて　Hikari is my name
+[01:24.0]夢の彼方に　また踊り出す
+[01:32.0]調べと歌と　舞える気分
+[01:39.0]足ばやに急げ　メイプルの坂
+[01:46.0]レンガの壁超えて　赤くなれ
+[01:53.0]ねえ話して　そばにいるの
+[02:01.0]君の笑みが見えて　くるでしょう
+[02:08.0]太陽の心を　名前に変えたから
+[02:15.0]これから会う君探して　走ります
+[02:22.0]私の心を　強さに変えたなら
+[02:29.0]君のいる海で輝け　Hikari is my name`;
+const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
+const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
+rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
+let active=-1;
+audio.addEventListener('loadedmetadata',()=>{
+ const dur=audio.duration; const m=Math.floor(dur/60); const s=Math.floor(dur%60).toString().padStart(2,'0');
+ document.querySelector('.time span:last-child').textContent=m+':'+s;
 });
-
-const audio = document.getElementById("audio");
-audio.addEventListener("timeupdate", () => {
-  let active = -1;
-  for (let i=0; i<lines.length; i++) {
-    if (audio.currentTime >= lines[i].time) active = i;
-  }
-  document.querySelectorAll(".lyric").forEach((el,i) => {
-    el.classList.toggle("active", i === active);
-  });
-  if (active >= 0) {
-    document.querySelectorAll(".lyric")[active].scrollIntoView({behavior:"smooth", block:"center"});
-  }
+audio.addEventListener('timeupdate',()=>{
+ const m=Math.floor(audio.currentTime/60), s=Math.floor(audio.currentTime%60).toString().padStart(2,'0');
+ document.getElementById('cur').textContent=m+':'+s;
+ let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
+ if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
+ if(n>=0)box.children[n]?.scrollIntoView({behavior:'smooth',block:'center'});}
 });
+document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
+document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
+audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
+audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
 </script>
 </body>
 </html>

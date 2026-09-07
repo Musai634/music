@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>ALIS ULTRA FINES — MUSAI</title>
 <meta name="description" content="ALIS ULTRA FINES — MUSAI. With wings beyond the boundaries.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ALIS ULTRA FINES — MUSAI">
 <meta property="og:description" content="With wings beyond the boundaries.">
 <meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
+<meta property="og:image:alt" content="ALIS ULTRA FINES album jacket">
 <meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/">
 <style>
 
@@ -34,31 +35,33 @@ button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:poin
 audio{width:100%;margin-top:8px}
 @media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
 
-.track {
-  display:flex; align-items:center; justify-content:space-between;
-  gap:16px; padding:14px 0; border-bottom:1px solid rgba(128,128,128,.18);
-  text-decoration:none; color:inherit;
-}
-.track .num {width:28px; opacity:.45}
-.track .name {flex:1; text-align:left}
-.track .arrow {opacity:.5}
+.tracklist{margin-top:26px}
+.track{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--text)}
+.track-num{color:var(--muted);width:28px}
+.track-name{flex:1;font-size:18px;text-align:left}
+.track-arrow{color:var(--red);font-weight:700}
+@media(max-width:760px){.cover{max-width:100%;width:100%;height:auto}}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="album-art">
-    <img src="cover.jpg" alt="ALIS ULTRA FINES album jacket">
-  </div>
-  <h1>ALIS ULTRA FINES</h1>
-  <div class="artist">MUSAI</div>
-  <div class="subtitle">With wings beyond the boundaries.</div>
-  <div class="tracks">
-    <a class="track" href="hikari/">
-      <span class="num">01</span>
-      <span class="name">Hikari Is My Name</span>
-      <span class="arrow">▶</span>
-    </a>
-  </div>
+<div class="wrap">
+<section class="hero">
+<img class="cover" src="cover.jpg" alt="ALIS ULTRA FINES album jacket">
+<div>
+<h1>ALIS ULTRA FINES</h1>
+<div class="artist">MUSAI</div>
+<div class="meta">With wings beyond the boundaries.</div>
+<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
+</div>
+</section>
+<section class="content">
+<div class="card">
+<h2>Tracks</h2>
+<div class="tracklist">
+<a class="track" href="hikari/"><span class="track-num">01</span><span class="track-name">Hikari Is My Name</span><span class="track-arrow">▶</span></a>
+</div>
+</div>
+</section>
 </div>
 </body>
 </html>
