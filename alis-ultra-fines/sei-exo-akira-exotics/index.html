@@ -2,118 +2,124 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>聖EXO -Akira Exotics — MUSAI</title>
+<meta name="description" content="聖EXO -Akira Exotics — MUSAI">
+<meta property="og:type" content="music.song">
+<meta property="og:title" content="聖EXO -Akira Exotics — MUSAI">
+<meta property="og:description" content="ALIS ULTRA FINES — With wings beyond the boundaries.">
+<meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
+<meta property="og:image:alt" content="ALIS ULTRA FINES album jacket">
+<meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/sei-exo-akira-exotics/">
 <style>
+
 :root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
-.wrap{max-width:1100px;margin:auto;padding:34px}
-.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:start}
-.cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px}
-.back{display:inline-block;color:#555;text-decoration:none;margin-bottom:18px}
-h1{font-size:38px;margin:12px 0 8px}
-.artist{font-size:17px;color:var(--muted)}
-.content{display:grid;grid-template-columns:1fr 330px;gap:24px;margin-top:36px}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
-.card h2{font-size:18px;margin:0 0 16px}
-.lyrics{height:500px;overflow-y:auto;line-height:1.9}
-.lyric-line{margin:0 0 7px;padding:2px 8px;border-radius:7px;transition:.15s}
-.lyric-line.active{color:var(--red);font-weight:600;background:#fff1f3}
-audio{width:100%;display:block}
-.download{display:block;margin-top:14px;color:var(--red);text-decoration:none}
-.credit{color:#666;line-height:1.8}
-.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:14px 34px;background:rgba(247,247,248,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-.main-play{background:var(--red);color:#fff;border:0;border-radius:22px;padding:10px 22px;font-size:15px;cursor:pointer;margin-bottom:14px}
-@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr}h1{font-size:30px}.lyrics{height:430px}.player{margin:28px -18px -18px;padding:14px 18px}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
+.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
+.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
+h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
+button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:pointer}
+.play{background:var(--red);color:white;font-size:17px}.sub{background:#eee;margin-left:8px}
+.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
+.credits{line-height:1.8;margin-top:18px}
+.content{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:38px}
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
+.card h2{font-size:21px;margin:0 0 20px}
+.lyrics{height:570px;overflow:auto;scroll-behavior:smooth}
+.line{font-size:21px;line-height:1.75;color:#aaa;padding:3px 0;transition:.18s}
+.line.active{color:var(--text);font-weight:700;transform:scale(1.01);transform-origin:left}
+.note{font-size:17px;line-height:1.9}
+.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+audio{width:100%;margin-top:8px}
+@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
+
+.album-link{display:inline-block;margin-top:14px;color:var(--red);text-decoration:none;font-weight:700}
+.download{display:inline-block;margin-top:12px;color:var(--text);text-decoration:none}
+@media(max-width:760px){.cover{max-width:100%;width:100%;height:auto}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="../">← ALIS ULTRA FINES</a>
-<div class="hero">
-<div><img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES"></div>
-<div><h1>聖EXO -Akira Exotics</h1><div class="artist">MUSAI</div></div>
+<section class="hero">
+<img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES ジャケット">
+<div>
+<h1>聖EXO -Akira Exotics</h1>
+<div class="artist">MUSAI</div>
+<button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
+<div class="meta">1曲　·　約3分</div>
+<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
+<a class="album-link" href="../">← ALIS ULTRA FINES</a><br>
+<a class="download" href="聖EXO -Akira Exotics.mp3" download>MP3をダウンロード</a>
 </div>
-<div class="content">
+</section>
+<section class="content">
 <div class="card">
 <h2>歌詞</h2>
-<div class="lyrics" id="lyrics"><div class="lyric-line" data-time="0.00">眠れない街の　聖なる天使は</div>
-<div class="lyric-line" data-time="9.00">青い馬車に乗り　風の上を駆ける</div>
-<div class="lyric-line" data-time="17.00">雨の中でも　暗い夜でも</div>
-<div class="lyric-line" data-time="20.00">揺れる星を　追いかけて</div>
-<div class="lyric-line" data-time="25.00">手に抱えた　魔法の本は</div>
-<div class="lyric-line" data-time="29.00">神様からの　贈り物</div>
-<div class="lyric-line" data-time="33.00">少しずつでも　杖に伝えて</div>
-<div class="lyric-line" data-time="37.00">星の動きを　止めるために</div>
-<div class="lyric-line" data-time="41.00">さあ、今</div>
-<div class="lyric-line" data-time="44.00">君の力と翼で</div>
-<div class="lyric-line" data-time="49.00">天空すべて</div>
-<div class="lyric-line" data-time="52.00">君の手の中に</div>
-<div class="lyric-line" data-time="63.00">目覚める街の　聖なる天使は</div>
-<div class="lyric-line" data-time="70.00">とびいろの瞳で　水晶玉を抱く</div>
-<div class="lyric-line" data-time="78.00">ざわめきの中　刻む時計</div>
-<div class="lyric-line" data-time="82.00">瞬く星を　読み取って</div>
-<div class="lyric-line" data-time="86.00">身に纏う　太陽の印は</div>
-<div class="lyric-line" data-time="90.00">生まれた朝に　授かったもの</div>
-<div class="lyric-line" data-time="93.00">間違いのない　宿命は</div>
-<div class="lyric-line" data-time="97.00">星の動きから　守るために</div>
-<div class="lyric-line" data-time="101.00">さあ、今</div>
-<div class="lyric-line" data-time="104.00">君の力と翼で</div>
-<div class="lyric-line" data-time="108.00">天空すべて</div>
-<div class="lyric-line" data-time="112.00">君の手の中に</div>
-<div class="lyric-line" data-time="118.00">眠らない天使</div>
-<div class="lyric-line" data-time="122.00">夜空を駆けて</div>
-<div class="lyric-line" data-time="125.00">動き続ける星を</div>
-<div class="lyric-line" data-time="129.00">手なづけて</div>
-<div class="lyric-line" data-time="136.00">Akira Exotics</div></div>
+<div class="lyrics" id="lyrics"></div>
 </div>
 <div>
 <div class="card">
-<h2>再生</h2>
-<button class="main-play" id="playButton">▶ 再生</button>
-<audio id="audio" controls preload="metadata" src="聖EXO -Akira Exotics.mp3"></audio>
-<a class="download" href="聖EXO -Akira Exotics.mp3" download>MP3をダウンロード</a>
-</div>
-<div class="card" style="margin-top:24px">
-<h2>Credits</h2>
-<div class="credit">作詞・作曲：MUSAI<br>編曲・演奏：SUNO</div>
+<h2>ALIS ULTRA FINES</h2>
+<p class="note">With wings beyond the boundaries.</p>
 </div>
 </div>
+</section>
+<div class="player">
+<div class="time"><span id="cur">0:00</span><span>3:??</span></div>
+<audio id="audio" controls preload="metadata"><source src="聖EXO -Akira Exotics.mp3" type="audio/mpeg"></audio>
 </div>
-<div class="player"><audio id="bottomAudio" controls preload="metadata" src="聖EXO -Akira Exotics.mp3"></audio></div>
 </div>
 <script>
-const audio=document.getElementById('audio');
-const bottom=document.getElementById('bottomAudio');
-const play=document.getElementById('playButton');
-const lyricBox=document.getElementById('lyrics');
-const lines=[...document.querySelectorAll('.lyric-line')];
-
-function setTimeFrom(source) {
-  if(Math.abs(audio.currentTime-source.currentTime)>0.25) audio.currentTime=source.currentTime;
-  if(Math.abs(bottom.currentTime-source.currentTime)>0.25) bottom.currentTime=source.currentTime;
-}
-audio.addEventListener('play',()=>bottom.play().catch(()=>{}));
-bottom.addEventListener('play',()=>audio.play().catch(()=>{}));
-audio.addEventListener('pause',()=>bottom.pause());
-bottom.addEventListener('pause',()=>audio.pause());
-audio.addEventListener('timeupdate',()=>{ if(!bottom.paused) bottom.currentTime=audio.currentTime; sync(); });
-bottom.addEventListener('timeupdate',()=>{ if(!audio.paused) audio.currentTime=bottom.currentTime; sync(); });
-play.addEventListener('click',()=>audio.paused?audio.play():audio.pause());
-audio.addEventListener('play',()=>play.textContent='❚❚ 再生中');
-audio.addEventListener('pause',()=>play.textContent='▶ 再生');
-
-function sync(){
-  const t=audio.currentTime;
-  let active=-1;
-  for(let i=0;i<lines.length;i++){if(parseFloat(lines[i].dataset.time)<=t)active=i;else break}
-  lines.forEach((el,i)=>el.classList.toggle('active',i===active));
-  if(active>=0){
-    const box=lyricBox.getBoundingClientRect(), el=lines[active].getBoundingClientRect();
-    if(el.top<box.top+35||el.bottom>box.bottom-35) lines[active].scrollIntoView({behavior:'smooth',block:'center'});
-  }
-}
+const lrc = `[00:00.0]眠れない街の　聖なる天使は
+[00:09.0]青い馬車に乗り　風の上を駆ける
+[00:17.0]雨の中でも　暗い夜でも
+[00:20.0]揺れる星を　追いかけて
+[00:25.0]手に抱えた　魔法の本は
+[00:29.0]神様からの　贈り物
+[00:33.0]少しずつでも　杖に伝えて
+[00:37.0]星の動きを　止めるために
+[00:41.0]さあ、今
+[00:44.0]君の力と翼で
+[00:49.0]天空すべて
+[00:52.0]君の手の中に
+[01:03.0]目覚める街の　聖なる天使は
+[01:10.0]とびいろの瞳で　水晶玉を抱く
+[01:18.0]ざわめきの中　刻む時計
+[01:22.0]瞬く星を　読み取って
+[01:26.0]身に纏う　太陽の印は
+[01:30.0]生まれた朝に　授かったもの
+[01:33.0]間違いのない　宿命は
+[01:37.0]星の動きから　守るために
+[01:41.0]さあ、今
+[01:44.0]君の力と翼で
+[01:48.0]天空すべて
+[01:52.0]君の手の中に
+[01:58.0]眠らない天使
+[02:02.0]夜空を駆けて
+[02:05.0]動き続ける星を
+[02:09.0]手なづけて
+[02:16.0]Akira Exotics`;
+const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
+const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
+rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
+let active=-1;
+audio.addEventListener('loadedmetadata',()=>{
+ const dur=audio.duration; const m=Math.floor(dur/60); const s=Math.floor(dur%60).toString().padStart(2,'0');
+ document.querySelector('.time span:last-child').textContent=m+':'+s;
+});
+audio.addEventListener('timeupdate',()=>{
+ const m=Math.floor(audio.currentTime/60), s=Math.floor(audio.currentTime%60).toString().padStart(2,'0');
+ document.getElementById('cur').textContent=m+':'+s;
+ let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
+ if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
+ if(n>=0)box.children[n]?.scrollIntoView({behavior:'smooth',block:'center'});}
+});
+document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
+document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
+audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
+audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
 </script>
 </body>
 </html>
