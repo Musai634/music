@@ -11,9 +11,9 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,B
 .wrap{max-width:1100px;margin:auto;padding:34px}
 .hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:start}
 .cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px}
+.back{display:inline-block;color:#555;text-decoration:none;margin-bottom:18px}
 h1{font-size:38px;margin:12px 0 8px}
 .artist{font-size:17px;color:var(--muted)}
-.back{display:inline-block;color:#555;text-decoration:none;margin-bottom:18px}
 .content{display:grid;grid-template-columns:1fr 330px;gap:24px;margin-top:36px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
 .card h2{font-size:18px;margin:0 0 16px}
@@ -36,64 +36,51 @@ h1{font-size:30px}
 <div class="wrap">
 <a class="back" href="../">← ALIS ULTRA FINES</a>
 <div class="hero">
-<div>
-<img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES">
+<div><img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES"></div>
+<div><h1>君が好きだ</h1><div class="artist">MUSAI</div></div>
 </div>
-<div>
-<h1>君が好きだ</h1>
-<div class="artist">MUSAI</div>
-</div>
-</div>
-
 <div class="content">
 <div class="card">
-<h2>Lyrics</h2>
+<h2>歌詞</h2>
 <div class="lyrics">
 <p class="line">太陽が昇る</p>
 <p class="line">湖の彼方から</p>
 <p class="line">通り行く光線で</p>
-<p class="line">コーヒーの湯気が揺れる</p>
-<br>
+<p class="line">コーヒーの湯気が揺れる</p><br>
 <p class="line">今、電話切ったとこさ</p>
 <p class="line">声が耳に残るよ</p>
 <p class="line">朝の摩天楼見つめて</p>
-<p class="line">僕の時間が止まる</p>
-<br>
+<p class="line">僕の時間が止まる</p><br>
 <p class="line">君が好きだ</p>
 <p class="line">時差を超えて突き抜ける</p>
 <p class="line">東京まで飛んで行け</p>
-<p class="line">僕の声　僕の歌</p>
-<br>
+<p class="line">僕の声　僕の歌</p><br>
 <p class="line">夕日が沈む</p>
 <p class="line">東京の君の窓</p>
 <p class="line">遠く霞む街</p>
-<p class="line">映るスタンドの灯り</p>
-<br>
+<p class="line">映るスタンドの灯り</p><br>
 <p class="line">今、何してるのかな</p>
 <p class="line">君も空を見てるかな</p>
 <p class="line">長い夜を越えるたびに</p>
-<p class="line">君の笑みが浮かぶ</p>
-<br>
+<p class="line">君の笑みが浮かぶ</p><br>
 <p class="line">君が好きだ</p>
 <p class="line">海を超えて突き抜ける</p>
 <p class="line">東京まで届けたい</p>
 <p class="line">僕の声　僕の歌</p>
-</div>
-</div>
-
+</div></div>
+<div>
 <div class="card">
-<h2>Credits</h2>
-<div class="credit">
-作詞・作曲：MUSAI<br>
-編曲・演奏：Suno
-</div>
+<h2>再生</h2>
+<audio controls preload="metadata" src="君が好きだ.mp3"></audio>
 <a class="download" href="君が好きだ.mp3" download>MP3をダウンロード</a>
 </div>
+<div class="card" style="margin-top:24px">
+<h2>Credits</h2>
+<div class="credit">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
 </div>
-
-<div class="player">
-<audio controls preload="metadata" src="君が好きだ.mp3"></audio>
 </div>
+</div>
+<div class="player"><audio controls preload="metadata" src="君が好きだ.mp3"></audio></div>
 </div>
 </body>
 </html>
