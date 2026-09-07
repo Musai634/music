@@ -1,47 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hikari Is My Name — MUSAI</title>
-<meta property="og:title" content="Hikari Is My Name — MUSAI">
-<meta property="og:description" content="ALIS ULTRA FINES">
-<meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/hikari/">
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hikari Is My Name — MUSAI</title><meta property="og:title" content="Hikari Is My Name — MUSAI"><meta property="og:description" content="ALIS ULTRA FINES">
 <meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
-<style>
-body{margin:0;background:#f7f4f6;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
-main{max-width:720px;margin:auto;padding:25px 20px 60px;text-align:center}
-img{width:100%;border-radius:10px} h1{font-family:Georgia,serif;font-weight:400}
-audio{width:100%;margin:12px 0 25px} #lyrics{font-size:17px;line-height:1.8}
-.line{opacity:.35;margin:5px 0} .active{opacity:1;font-weight:600;transform:scale(1.02)}
-</style></head><body><main>
-<img src="../cover.jpg" alt="ALIS ULTRA FINES album jacket">
-<h1>Hikari Is My Name</h1><p>MUSAI</p>
-<audio id="player" controls><source src="Hikari Is My Name.mp3" type="audio/mpeg"></audio>
-<div id="lyrics"></div></main>
-<script>
-const lrc=`[00:00.00]明日が来れば　また走り出す
-[00:10.00]鼓動と汗と　飛べる気分
-[00:20.00]両手広げて　駆け上がる道
-[00:30.00]襟の桜は　いつも春の色
-[00:40.00]ねぇ目覚めて　遠くにいるの
-[00:50.00]君の声が　聞こえてくるでしょう
-[01:00.00]太陽の力を　名前に変えたから
-[01:10.00]これから行く道差して　教えてください
-[01:20.00]私の力を　優しさに変えたなら
-[01:30.00]君の行く空で見つけて　Hikari is my name
-[01:40.00]夢の彼方に　また踊り出す
-[01:50.00]調べと歌と　舞える気分
-[02:00.00]足ばやに急げ　メイプルの坂
-[02:10.00]レンガの壁超えて　赤くなれ
-[02:20.00]ねえ話して　そばにいるの
-[02:30.00]君の笑みが見えて　くるでしょう
-[02:40.00]太陽の心を　名前に変えたから
-[02:50.00]これから会う君探して　走ります
-[03:00.00]私の心を　強さに変えたなら
-[03:10.00]君のいる海で輝け　Hikari is my name`;
-const items=lrc.split("\n").map(x=>x.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/)).filter(Boolean)
-.map(m=>({time:+m[1]*60 + +m[2],text:m[3]}));
-const box=document.getElementById("lyrics");
-items.forEach((x,i)=>{let e=document.createElement("div");e.className="line";e.textContent=x.text;e.dataset.i=i;box.appendChild(e)});
-const p=document.getElementById("player");
-p.ontimeupdate=()=>{let n=-1;items.forEach((x,i)=>{if(p.currentTime>=x.time)n=i});document.querySelectorAll(".line").forEach((e,i)=>e.classList.toggle("active",i===n));};
-</script></body></html>
+<style>body{margin:0;background:#f7f4f6;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}main{max-width:720px;margin:auto;padding:25px 20px 60px;text-align:center}img{width:100%;border-radius:10px}h1{font-family:Georgia,serif;font-weight:400}audio{width:100%;margin:12px 0 25px}#lyrics{font-size:17px;line-height:1.8}.line{opacity:.35;margin:5px 0}.active{opacity:1;font-weight:600}</style></head><body><main>
+<img src="../cover.jpg" alt="ALIS ULTRA FINES album jacket"><h1>Hikari Is My Name</h1><p>MUSAI</p>
+<audio id="player" controls preload="metadata"><source src="Hikari Is My Name.mp3" type="audio/mpeg"></audio><div id="lyrics"></div></main>
+<script>const lrc=`[00:00.00]明日が来れば　また走り出す
+[00:08.00]鼓動と汗と　飛べる気分
+[00:15.00]両手広げて　駆け上がる道
+[00:21.00]襟の桜は　いつも春の色
+[00:29.00]ねぇ目覚めて　遠くにいるの
+[00:36.00]君の声が　聞こえてくるでしょう
+[00:43.00]太陽の力を　名前に変えたから
+[00:50.00]これから行く道差して　教えてください
+[00:57.00]私の力を　優しさに変えたなら
+[01:04.00]君の行く空で見つけて　Hikari is my name
+[01:24.00]夢の彼方に　また踊り出す
+[01:32.00]調べと歌と　舞える気分
+[01:39.00]足ばやに急げ　メイプルの坂
+[01:46.00]レンガの壁超えて　赤くなれ
+[01:53.00]ねえ話して　そばにいるの
+[02:01.00]君の笑みが見えて　くるでしょう
+[02:08.00]太陽の心を　名前に変えたから
+[02:15.00]これから会う君探して　走ります
+[02:22.00]私の心を　強さに変えたなら
+[02:29.00]君のいる海で輝け　Hikari is my name`;const items=lrc.split("\n").map(x=>x.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/)).filter(Boolean).map(m=>({time:+m[1]*60 + +m[2],text:m[3]}));
+const box=document.getElementById("lyrics");items.forEach((x,i)=>{let e=document.createElement("div");e.className="line";e.textContent=x.text;box.appendChild(e)});
+const p=document.getElementById("player");p.ontimeupdate=()=>{let n=-1;items.forEach((x,i)=>{if(p.currentTime>=x.time)n=i});document.querySelectorAll(".line").forEach((e,i)=>e.classList.toggle("active",i===n));};</script></body></html>
