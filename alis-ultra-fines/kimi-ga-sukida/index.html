@@ -4,120 +4,117 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>君が好きだ — MUSAI</title>
+<meta name="description" content="君が好きだ — MUSAI">
+<meta property="og:type" content="music.song">
+<meta property="og:title" content="君が好きだ — MUSAI">
+<meta property="og:description" content="ALIS ULTRA FINES — With wings beyond the boundaries.">
+<meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
+<meta property="og:image:alt" content="ALIS ULTRA FINES album jacket">
+<meta property="og:url" content="https://music.akasakahasegawa.com/alis-ultra-fines/hikari/">
 <style>
-:root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#fff}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
-body{padding-bottom:105px}
-.wrap{max-width:900px;margin:0 auto;padding:0 32px 42px}
-.cover{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:0 0 20px 20px}
-h1{font-size:42px;line-height:1.1;margin:42px 0 8px;font-weight:700;letter-spacing:-.03em}
-.artist{font-size:30px;color:var(--red);margin-bottom:34px}
-.actions{display:flex;gap:14px;margin-bottom:44px}
-button{border:0;font:inherit;font-weight:600;cursor:pointer}
-.play-btn{background:var(--red);color:#fff;border-radius:42px;padding:16px 30px;font-size:18px;min-width:170px}
-.reset-btn{background:#eee;color:#1683e6;border-radius:42px;padding:16px 27px;font-size:17px}
-.divider{border-top:1px solid var(--line);margin-bottom:34px}
-.meta{font-size:24px;color:#777;margin-bottom:42px}
-.credits{font-size:20px;line-height:2;margin-bottom:30px}
-.back,.download{display:block;text-decoration:none;font-size:20px;margin:20px 0}
-.back{color:var(--red);font-weight:600}
-.download{color:var(--text)}
-.lyrics-card{border:1px solid #d9d9d9;border-radius:20px;padding:28px 28px 30px;margin-top:70px}
-.lyrics-card h2{font-size:28px;margin:0 0 24px}
-.lyrics{max-height:620px;overflow-y:auto;padding-right:6px}
-.lyric-line{font-size:22px;line-height:1.8;margin:0 0 10px;padding:3px 8px;border-radius:8px;transition:.15s}
-.lyric-line.active{color:var(--red);font-weight:650;background:#fff1f3}
-.player{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.97);border-top:1px solid #ddd;padding:12px 32px calc(12px + env(safe-area-inset-bottom));backdrop-filter:blur(10px)}
-.player audio{display:block;width:100%;max-width:900px;margin:0 auto}
-@media(max-width:700px){.wrap{padding:0 32px 30px}.cover{width:calc(100% + 64px);max-width:none;margin-left:-32px;border-radius:0 0 18px 18px}h1{font-size:38px;margin-top:42px}.artist{font-size:29px;margin-bottom:34px}.actions{margin-bottom:44px}.play-btn{padding:15px 27px;min-width:171px}.reset-btn{padding:15px 25px}.meta{font-size:23px;margin-bottom:40px}.credits{font-size:20px}.back,.download{font-size:20px}.lyrics-card{margin-top:70px;padding:27px 28px}.lyric-line{font-size:22px}.player{padding-left:32px;padding-right:32px}}
-@media(max-width:430px){.wrap{padding-left:32px;padding-right:32px}.cover{width:calc(100% + 64px);margin-left:-32px}h1{font-size:36px}.actions{gap:12px}.play-btn{min-width:0;padding:15px 25px}.reset-btn{padding:15px 22px}}
+
+:root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
+.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
+.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
+h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
+button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:pointer}
+.play{background:var(--red);color:white;font-size:17px}.sub{background:#eee;margin-left:8px}
+.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
+.credits{line-height:1.8;margin-top:18px}
+.content{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:38px}
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
+.card h2{font-size:21px;margin:0 0 20px}
+.lyrics{height:570px;overflow:auto;scroll-behavior:smooth}
+.line{font-size:21px;line-height:1.75;color:#aaa;padding:3px 0;transition:.18s}
+.line.active{color:var(--text);font-weight:700;transform:scale(1.01);transform-origin:left}
+.note{font-size:17px;line-height:1.9}
+.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+audio{width:100%;margin-top:8px}
+@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
+
+.album-link{display:inline-block;margin-top:14px;color:var(--red);text-decoration:none;font-weight:700}
+.download{display:inline-block;margin-top:12px;color:var(--text);text-decoration:none}
+@media(max-width:760px){.cover{max-width:100%;width:100%;height:auto}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES">
+<section class="hero">
+<img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES ジャケット">
+<div>
 <h1>君が好きだ</h1>
 <div class="artist">MUSAI</div>
-<div class="actions">
-<button class="play-btn" id="playButton">▶ 再生</button>
-<button class="reset-btn" id="resetButton">↻ 最初から</button>
-</div>
-<div class="divider"></div>
-<div class="meta">1曲　・　約3分</div>
-<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
-<a class="back" href="../">← ALIS ULTRA FINES</a>
+<button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
+<div class="meta">1曲　·　約3分</div>
+<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：SunoSuno</div>
+<a class="album-link" href="../">← ALIS ULTRA FINES</a><br>
 <a class="download" href="君が好きだ.mp3" download>MP3をダウンロード</a>
-<section class="lyrics-card">
-<h2>歌詞</h2>
-<div class="lyrics" id="lyrics">
-<div class="lyric-line" data-time="17.00">太陽が昇る</div>
-<div class="lyric-line" data-time="21.00">湖の彼方から</div>
-<div class="lyric-line" data-time="26.00">通り行く光線で</div>
-<div class="lyric-line" data-time="29.00">コーヒーの湯気が揺れる</div>
-<div class="lyric-line" data-time="33.00">今、電話切ったとこさ</div>
-<div class="lyric-line" data-time="37.00">声が耳に残るよ</div>
-<div class="lyric-line" data-time="41.00">朝の摩天楼見つめて</div>
-<div class="lyric-line" data-time="45.00">僕の時間が止まる</div>
-<div class="lyric-line" data-time="50.00">君が好きだ</div>
-<div class="lyric-line" data-time="53.00">時差を超えて突き抜ける</div>
-<div class="lyric-line" data-time="57.00">東京まで飛んで行け</div>
-<div class="lyric-line" data-time="61.00">僕の声　僕の歌</div>
-<div class="lyric-line" data-time="100.00">夕日が沈む</div>
-<div class="lyric-line" data-time="104.00">東京の君の窓</div>
-<div class="lyric-line" data-time="108.00">遠く霞む街</div>
-<div class="lyric-line" data-time="112.00">映るスタンドの灯り</div>
-<div class="lyric-line" data-time="117.00">今、何してるのかな</div>
-<div class="lyric-line" data-time="121.00">君も空を見てるかな</div>
-<div class="lyric-line" data-time="124.00">長い夜を越えるたびに</div>
-<div class="lyric-line" data-time="128.00">君の笑みが浮かぶ</div>
-<div class="lyric-line" data-time="133.00">君が好きだ</div>
-<div class="lyric-line" data-time="136.00">海を超えて突き抜ける</div>
-<div class="lyric-line" data-time="140.00">東京まで届けたい</div>
-<div class="lyric-line" data-time="144.00">僕の声　僕の歌</div>
 </div>
 </section>
+<section class="content">
+<div class="card">
+<h2>歌詞</h2>
+<div class="lyrics" id="lyrics"></div>
 </div>
+<div>
+<div class="card">
+<h2>ALIS ULTRA FINES</h2>
+<p class="note">With wings beyond the boundaries.</p>
+</div>
+</div>
+</section>
 <div class="player">
-<audio id="audio" controls preload="metadata" src="君が好きだ.mp3"></audio>
+<div class="time"><span id="cur">0:00</span><span>3:??</span></div>
+<audio id="audio" controls preload="metadata"><source src="君が好きだ.mp3" type="audio/mpeg"></audio>
+</div>
 </div>
 <script>
-const audio = document.getElementById('audio');
-const playButton = document.getElementById('playButton');
-const resetButton = document.getElementById('resetButton');
-const lyricBox = document.getElementById('lyrics');
-const lines = [...document.querySelectorAll('.lyric-line')];
-
-playButton.addEventListener('click', async () => {
-  if (audio.paused) {
-    try { await audio.play(); } catch(e) {}
-  } else {
-    audio.pause();
-  }
+const lrc = `[00:17.0]太陽が昇る
+[00:21.0]湖の彼方から
+[00:26.0]通り行く光線で
+[00:29.0]コーヒーの湯気が揺れる
+[00:33.0]今、電話切ったとこさ
+[00:37.0]声が耳に残るよ
+[00:41.0]朝の摩天楼見つめて
+[00:45.0]僕の時間が止まる
+[00:50.0]君が好きだ
+[00:53.0]時差を超えて突き抜ける
+[00:57.0]東京まで飛んで行け
+[01:01.0]僕の声　僕の歌
+[01:40.0]夕日が沈む
+[01:44.0]東京の君の窓
+[01:48.0]遠く霞む街
+[01:52.0]映るスタンドの灯り
+[01:57.0]今、何してるのかな
+[02:01.0]君も空を見てるかな
+[02:04.0]長い夜を越えるたびに
+[02:08.0]君の笑みが浮かぶ
+[02:13.0]君が好きだ
+[02:16.0]海を超えて突き抜ける
+[02:20.0]東京まで届けたい
+[02:24.0]僕の声　僕の歌`;
+const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
+const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
+rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
+let active=-1;
+audio.addEventListener('loadedmetadata',()=>{
+ const dur=audio.duration; const m=Math.floor(dur/60); const s=Math.floor(dur%60).toString().padStart(2,'0');
+ document.querySelector('.time span:last-child').textContent=m+':'+s;
 });
-resetButton.addEventListener('click', () => {
-  audio.currentTime = 0;
-  audio.play().catch(() => {});
+audio.addEventListener('timeupdate',()=>{
+ const m=Math.floor(audio.currentTime/60), s=Math.floor(audio.currentTime%60).toString().padStart(2,'0');
+ document.getElementById('cur').textContent=m+':'+s;
+ let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
+ if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
+ if(n>=0)box.children[n]?.scrollIntoView({behavior:'smooth',block:'center'});}
 });
-audio.addEventListener('play', () => { playButton.textContent = '❚❚ 再生中'; });
-audio.addEventListener('pause', () => { playButton.textContent = '▶ 再生'; });
-function syncLyrics() {
-  const t = audio.currentTime;
-  let active = -1;
-  for (let i = 0; i < lines.length; i++) {
-    if (parseFloat(lines[i].dataset.time) <= t) active = i;
-    else break;
-  }
-  lines.forEach((el, i) => el.classList.toggle('active', i === active));
-  if (active >= 0) {
-    const box = lyricBox.getBoundingClientRect();
-    const el = lines[active].getBoundingClientRect();
-    if (el.top < box.top + 35 || el.bottom > box.bottom - 35) {
-      lines[active].scrollIntoView({behavior:'smooth',block:'center'});
-    }
-  }
-}
-audio.addEventListener('timeupdate', syncLyrics);
+document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
+document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
+audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
+audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
 </script>
 </body>
 </html>
