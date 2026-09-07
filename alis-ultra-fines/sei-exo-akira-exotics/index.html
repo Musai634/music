@@ -9,20 +9,22 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
 .wrap{max-width:1100px;margin:auto;padding:34px}
-.back{display:inline-block;color:#555;text-decoration:none;margin-bottom:20px;font-size:15px}
 .hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:start}
 .cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px}
+.back{display:inline-block;color:#555;text-decoration:none;margin-bottom:18px}
 h1{font-size:38px;margin:12px 0 8px}
 .artist{font-size:17px;color:var(--muted)}
 .content{display:grid;grid-template-columns:1fr 330px;gap:24px;margin-top:36px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
 .card h2{font-size:18px;margin:0 0 16px}
 .lyrics{height:500px;overflow-y:auto;line-height:1.9}
-.line{margin:0 0 4px}
-audio{width:100%}
+.lyric-line{margin:0 0 7px;padding:2px 8px;border-radius:7px;transition:.15s}
+.lyric-line.active{color:var(--red);font-weight:600;background:#fff1f3}
+audio{width:100%;display:block}
 .download{display:block;margin-top:14px;color:var(--red);text-decoration:none}
 .credit{color:#666;line-height:1.8}
 .player{position:sticky;bottom:0;margin:28px -34px -34px;padding:14px 34px;background:rgba(247,247,248,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.main-play{background:var(--red);color:#fff;border:0;border-radius:22px;padding:10px 22px;font-size:15px;cursor:pointer;margin-bottom:14px}
 @media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr}h1{font-size:30px}.lyrics{height:430px}.player{margin:28px -18px -18px;padding:14px 18px}}
 </style>
 </head>
@@ -36,40 +38,41 @@ audio{width:100%}
 <div class="content">
 <div class="card">
 <h2>歌詞</h2>
-<div class="lyrics">
-<p class="line">眠れない街の　聖なる天使は</p>
-<p class="line">青い馬車に乗り　風の上を駆ける</p>
-<p class="line">雨の中でも　暗い夜でも</p>
-<p class="line">揺れる星を　追いかけて</p><br>
-<p class="line">手に抱えた　魔法の本は</p>
-<p class="line">神様からの　贈り物</p>
-<p class="line">少しずつでも　杖に伝えて</p>
-<p class="line">星の動きを　止めるために</p><br>
-<p class="line">さあ、今</p>
-<p class="line">君の力と翼で</p>
-<p class="line">天空すべて</p>
-<p class="line">君の手の中に</p><br>
-<p class="line">目覚める街の　聖なる天使は</p>
-<p class="line">とびいろの瞳で　水晶玉を抱く</p>
-<p class="line">ざわめきの中　刻む時計</p>
-<p class="line">瞬く星を　読み取って</p><br>
-<p class="line">身に纏う　太陽の印は</p>
-<p class="line">生まれた朝に　授かったもの</p>
-<p class="line">間違いのない　宿命は</p>
-<p class="line">星の動きから　守るために</p><br>
-<p class="line">さあ、今</p>
-<p class="line">君の力と翼で</p>
-<p class="line">天空すべて</p>
-<p class="line">君の手の中に</p><br>
-<p class="line">眠らない天使</p>
-<p class="line">夜空を駆けて</p>
-<p class="line">動き続ける星を</p>
-<p class="line">手なづけて</p>
-</div></div>
+<div class="lyrics" id="lyrics"><div class="lyric-line" data-time="0.00">眠れない街の　聖なる天使は</div>
+<div class="lyric-line" data-time="9.00">青い馬車に乗り　風の上を駆ける</div>
+<div class="lyric-line" data-time="17.00">雨の中でも　暗い夜でも</div>
+<div class="lyric-line" data-time="20.00">揺れる星を　追いかけて</div>
+<div class="lyric-line" data-time="25.00">手に抱えた　魔法の本は</div>
+<div class="lyric-line" data-time="29.00">神様からの　贈り物</div>
+<div class="lyric-line" data-time="33.00">少しずつでも　杖に伝えて</div>
+<div class="lyric-line" data-time="37.00">星の動きを　止めるために</div>
+<div class="lyric-line" data-time="41.00">さあ、今</div>
+<div class="lyric-line" data-time="44.00">君の力と翼で</div>
+<div class="lyric-line" data-time="49.00">天空すべて</div>
+<div class="lyric-line" data-time="52.00">君の手の中に</div>
+<div class="lyric-line" data-time="63.00">目覚める街の　聖なる天使は</div>
+<div class="lyric-line" data-time="70.00">とびいろの瞳で　水晶玉を抱く</div>
+<div class="lyric-line" data-time="78.00">ざわめきの中　刻む時計</div>
+<div class="lyric-line" data-time="82.00">瞬く星を　読み取って</div>
+<div class="lyric-line" data-time="86.00">身に纏う　太陽の印は</div>
+<div class="lyric-line" data-time="90.00">生まれた朝に　授かったもの</div>
+<div class="lyric-line" data-time="93.00">間違いのない　宿命は</div>
+<div class="lyric-line" data-time="97.00">星の動きから　守るために</div>
+<div class="lyric-line" data-time="101.00">さあ、今</div>
+<div class="lyric-line" data-time="104.00">君の力と翼で</div>
+<div class="lyric-line" data-time="108.00">天空すべて</div>
+<div class="lyric-line" data-time="112.00">君の手の中に</div>
+<div class="lyric-line" data-time="118.00">眠らない天使</div>
+<div class="lyric-line" data-time="122.00">夜空を駆けて</div>
+<div class="lyric-line" data-time="125.00">動き続ける星を</div>
+<div class="lyric-line" data-time="129.00">手なづけて</div>
+<div class="lyric-line" data-time="136.00">Akira Exotics</div></div>
+</div>
 <div>
 <div class="card">
 <h2>再生</h2>
-<audio controls preload="metadata" src="聖EXO -Akira Exotics.mp3"></audio>
+<button class="main-play" id="playButton">▶ 再生</button>
+<audio id="audio" controls preload="metadata" src="聖EXO -Akira Exotics.mp3"></audio>
 <a class="download" href="聖EXO -Akira Exotics.mp3" download>MP3をダウンロード</a>
 </div>
 <div class="card" style="margin-top:24px">
@@ -78,7 +81,39 @@ audio{width:100%}
 </div>
 </div>
 </div>
-<div class="player"><audio controls preload="metadata" src="聖EXO -Akira Exotics.mp3"></audio></div>
+<div class="player"><audio id="bottomAudio" controls preload="metadata" src="聖EXO -Akira Exotics.mp3"></audio></div>
 </div>
+<script>
+const audio=document.getElementById('audio');
+const bottom=document.getElementById('bottomAudio');
+const play=document.getElementById('playButton');
+const lyricBox=document.getElementById('lyrics');
+const lines=[...document.querySelectorAll('.lyric-line')];
+
+function setTimeFrom(source) {
+  if(Math.abs(audio.currentTime-source.currentTime)>0.25) audio.currentTime=source.currentTime;
+  if(Math.abs(bottom.currentTime-source.currentTime)>0.25) bottom.currentTime=source.currentTime;
+}
+audio.addEventListener('play',()=>bottom.play().catch(()=>{}));
+bottom.addEventListener('play',()=>audio.play().catch(()=>{}));
+audio.addEventListener('pause',()=>bottom.pause());
+bottom.addEventListener('pause',()=>audio.pause());
+audio.addEventListener('timeupdate',()=>{ if(!bottom.paused) bottom.currentTime=audio.currentTime; sync(); });
+bottom.addEventListener('timeupdate',()=>{ if(!audio.paused) audio.currentTime=bottom.currentTime; sync(); });
+play.addEventListener('click',()=>audio.paused?audio.play():audio.pause());
+audio.addEventListener('play',()=>play.textContent='❚❚ 再生中');
+audio.addEventListener('pause',()=>play.textContent='▶ 再生');
+
+function sync(){
+  const t=audio.currentTime;
+  let active=-1;
+  for(let i=0;i<lines.length;i++){if(parseFloat(lines[i].dataset.time)<=t)active=i;else break}
+  lines.forEach((el,i)=>el.classList.toggle('active',i===active));
+  if(active>=0){
+    const box=lyricBox.getBoundingClientRect(), el=lines[active].getBoundingClientRect();
+    if(el.top<box.top+35||el.bottom>box.bottom-35) lines[active].scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+</script>
 </body>
 </html>
