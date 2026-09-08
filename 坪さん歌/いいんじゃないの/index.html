@@ -1,83 +1,155 @@
-<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>いいんじゃないの -フィクションです</title>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>いいんじゃないの | 坪さん歌</title>
 <style>
-body{margin:0;background:#f7f7f8;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
-.wrap{max-width:1100px;margin:auto;background:#fff;min-height:100vh;padding:34px}
-.back{color:#111;text-decoration:none;font-weight:600} h1{font-size:36px;margin:24px 0 8px}
-.artist,.meta{color:#666} .audio{background:#f5f5f7;border-radius:16px;padding:18px;margin:24px 0}
-audio{width:100%} .card{margin-top:30px;padding:24px;background:#f7f7f8;border-radius:16px}
-.lyric{font-size:20px;line-height:1.7;padding:2px 0} .active{font-weight:700}
-@media(max-width:700px){.wrap{padding:20px}h1{font-size:30px}}
-</style></head><body><div class="wrap">
+* { box-sizing: border-box; }
+body { margin:0; background:#f7f7f8; color:#111; font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif; }
+.wrap { max-width:1100px; margin:0 auto; background:#fff; min-height:100vh; padding:34px; }
+.back { display:inline-block; margin-bottom:24px; color:#111; text-decoration:none; font-weight:600; }
+h1 { margin:0 0 8px; font-size:36px; line-height:1.15; }
+.artist { color:#666; font-size:18px; margin-bottom:22px; }
+.audio-card { background:#f5f5f7; border-radius:16px; padding:18px; margin:20px 0; }
+audio { width:100%; }
+.meta { color:#666; line-height:1.7; }
+.card { margin-top:30px; padding:24px; background:#f7f7f8; border-radius:16px; }
+.card h2 { margin-top:0; font-size:20px; }
+.lyrics { margin-top:30px; }
+.lyric-line { font-size:20px; line-height:1.7; padding:2px 0; opacity:.48; transition:opacity .12s,font-weight .12s; }
+.lyric-line.active { opacity:1; font-weight:700; }
+.download { display:inline-block; margin-top:12px; color:#111; }
+@media(max-width:700px) { .wrap { padding:20px; } h1 { font-size:30px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
 <a class="back" href="../">← 坪さん歌</a>
-<h1>いいんじゃないの -フィクションです</h1>
+<h1>いいんじゃないの</h1>
 <div class="artist">MUSAI</div>
-<div class="audio"><audio id="audio" controls preload="metadata"><source src="いいんじゃないの.mp3" type="audio/mpeg"></audio>
-<br><a href="いいんじゃないの.mp3" download>MP3をダウンロード</a></div>
-<div class="meta">作詞：久保田健嗣<br>作曲：長谷川斉<br>編曲・演奏：AI</div>
-<div class="card"><strong>Editor's Memo</strong><p>かっこいいあいつを、ちょっと羨むソング。</p></div>
-<h2>Lyrics</h2><div id="lyrics"></div>
+
+<div class="audio-card">
+<audio id="audio" controls preload="metadata">
+<source src="いいんじゃないの.mp3" type="audio/mpeg">
+</audio>
+<a class="download" href="いいんじゃないの.mp3" download>MP3をダウンロード</a>
 </div>
+
+<div class="meta">
+作詞・作曲：MUSAI<br>
+編曲・演奏：SUNO
+</div>
+
+<div class="card">
+<h2>Editor's Memo</h2>
+<p>かっこいいあいつを、ちょっと羨むソング。</p>
+</div>
+
+<section class="lyrics">
+<h2>Lyrics</h2>
+<div id="lyrics"></div>
+</section>
+</div>
+
 <script>
-const lyrics=[
-{time:7,text:'行くぜ'},
-{time:22,text:'ロッカーってさ'},
-{time:24,text:'本当はね'},
-{time:26,text:'チョット違うんだよね'},
-{time:29,text:'ギターに電球つけるって'},
-{time:33,text:'ステージでね'},
-{time:36,text:'ライダーってさ'},
-{time:38,text:'本当はね'},
-{time:40,text:'チョット違うんだよね'},
-{time:42,text:'レーシングスーツ着込んで'},
-{time:47,text:'アメリカン'},
-{time:51,text:'カッコいいかって'},
-{time:53,text:'聞かれても'},
-{time:55,text:'なんて言ったらいいのさ'},
-{time:58,text:'還暦超えたおじいちゃんに'},
-{time:62,text:'そりゃあんた失礼さ'},
-{time:65,text:'いいんじゃないの'},
-{time:67,text:'そんなこと'},
-{time:69,text:'自分の気分が良ければ'},
-{time:72,text:'いいんじゃないの'},
-{time:74,text:'そんなこと'},
-{time:76,text:'見てくれよりも中身でしょ'},
-{time:79,text:'いいんじゃないの'},
-{time:81,text:'そんなこと'},
-{time:83,text:'前はタノキンよりモテたって'},
-{time:87,text:'いいんじゃないの'},
-{time:89,text:'そんなこと'},
-{time:109,text:'サーファーってさ'},
-{time:111,text:'本当はね'},
-{time:113,text:'チョット違うんだよね'},
-{time:116,text:'短いボード抱えて'},
-{time:120,text:'おばちゃんナンパして'},
-{time:123,text:'スキーヤーってね'},
-{time:125,text:'本当はね'},
-{time:127,text:'チョット違うんだよね'},
-{time:131,text:'サングラスかけてるって'},
-{time:134,text:'吹雪いてるのにね'},
-{time:137,text:'カッコいいかって'},
-{time:139,text:'聞かれても'},
-{time:141,text:'なんて言ったらいいのさ'},
-{time:144,text:'還暦超えたおじいちゃんに'},
-{time:148,text:'そりゃあんた失礼さ'},
-{time:151,text:'いいんじゃないの'},
-{time:153,text:'そんなこと'},
-{time:155,text:'自分の気分が良ければ'},
-{time:159,text:'いいんじゃないの'},
-{time:160,text:'そんなこと'},
-{time:162,text:'見てくれよりも中身でしょ'},
-{time:166,text:'いいんじゃないの'},
-{time:168,text:'そんなこと'},
-{time:170,text:'モニカの兄さんより決めてたって'},
-{time:173,text:'いいんじゃないの'},
-{time:175,text:'そんなこと'},
-{time:180,text:'そんなこと'}
+const lyrics = [
+  {time: 7, text: '行くぜ'},
+  {time: 22, text: 'ロッカーってさ'},
+  {time: 24, text: '本当はね'},
+  {time: 26, text: 'チョット違うんだよね'},
+  {time: 29, text: 'ギターに電球つけるって'},
+  {time: 33, text: 'ステージでね'},
+  {time: 36, text: 'ライダーってさ'},
+  {time: 38, text: '本当はね'},
+  {time: 40, text: 'チョット違うんだよね'},
+  {time: 42, text: 'レーシングスーツ着込んで'},
+  {time: 47, text: 'アメリカン'},
+  {time: 51, text: 'カッコいいかって'},
+  {time: 53, text: '聞かれても'},
+  {time: 55, text: 'なんて言ったらいいのさ'},
+  {time: 58, text: '還暦超えたおじいちゃんに'},
+  {time: 62, text: 'そりゃあんた失礼さ'},
+  {time: 65, text: 'いいんじゃないの'},
+  {time: 67, text: 'そんなこと'},
+  {time: 69, text: '自分の気分が良ければ'},
+  {time: 72, text: 'いいんじゃないの'},
+  {time: 74, text: 'そんなこと'},
+  {time: 76, text: '見てくれよりも中身でしょ'},
+  {time: 79, text: 'いいんじゃないの'},
+  {time: 81, text: 'そんなこと'},
+  {time: 83, text: '前はタノキンよりモテたって'},
+  {time: 87, text: 'いいんじゃないの'},
+  {time: 89, text: 'そんなこと'},
+  {time: 109, text: 'サーファーってさ'},
+  {time: 111, text: '本当はね'},
+  {time: 113, text: 'チョット違うんだよね'},
+  {time: 116, text: '短いボード抱えて'},
+  {time: 120, text: 'おばちゃんナンパして'},
+  {time: 123, text: 'スキーヤーってね'},
+  {time: 125, text: '本当はね'},
+  {time: 127, text: 'チョット違うんだよね'},
+  {time: 131, text: 'サングラスかけてるって'},
+  {time: 134, text: '吹雪いてるのにね'},
+  {time: 137, text: 'カッコいいかって'},
+  {time: 139, text: '聞かれても'},
+  {time: 141, text: 'なんて言ったらいいのさ'},
+  {time: 144, text: '還暦超えたおじいちゃんに'},
+  {time: 148, text: 'そりゃあんた失礼さ'},
+  {time: 151, text: 'いいんじゃないの'},
+  {time: 153, text: 'そんなこと'},
+  {time: 155, text: '自分の気分が良ければ'},
+  {time: 159, text: 'いいんじゃないの'},
+  {time: 160, text: 'そんなこと'},
+  {time: 162, text: '見てくれよりも中身でしょ'},
+  {time: 166, text: 'いいんじゃないの'},
+  {time: 168, text: 'そんなこと'},
+  {time: 170, text: 'モニカの兄さんより決めてたって'},
+  {time: 173, text: 'いいんじゃないの'},
+  {time: 175, text: 'そんなこと'},
+  {time: 180, text: 'そんなこと'}
 ];
-const audio=document.getElementById("audio"), box=document.getElementById("lyrics");
-lyrics.forEach(x=>{const d=document.createElement("div");d.className="lyric";d.textContent=x.text;box.appendChild(d)});
-const els=[...document.querySelectorAll(".lyric")];
-audio.addEventListener("timeupdate",()=>{let n=-1;lyrics.forEach((x,i)=>{if(audio.currentTime>=x.time)n=i});els.forEach((e,i)=>e.classList.toggle("active",i===n))});
-</script></body></html>
+const audio = document.getElementById("audio");
+const lyricsEl = document.getElementById("lyrics");
+
+for (const line of lyrics) {
+  const div = document.createElement("div");
+  div.className = "lyric-line";
+  div.textContent = line.text;
+  lyricsEl.appendChild(div);
+}
+
+const lyricElements = Array.from(document.querySelectorAll(".lyric-line"));
+
+function updateLyrics() {
+  const t = audio.currentTime;
+  let activeIndex = -1;
+
+  for (let i = 0; i < lyrics.length; i++) {
+    if (t >= lyrics[i].time) {
+      activeIndex = i;
+    } else {
+      break;
+    }
+  }
+
+  lyricElements.forEach((el, i) => {
+    el.classList.toggle("active", i === activeIndex);
+  });
+
+  if (activeIndex >= 0) {
+    lyricElements[activeIndex].scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+}
+
+audio.addEventListener("timeupdate", updateLyrics);
+audio.addEventListener("seeking", updateLyrics);
+audio.addEventListener("loadedmetadata", updateLyrics);
+audio.addEventListener("play", updateLyrics);
+audio.addEventListener("pause", updateLyrics);
+</script>
+</body>
+</html>
