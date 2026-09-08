@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>いいんじゃないの | 坪さん歌</title>
+<title>いいんじゃないの — MUSAI</title>
 <style>
 :root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
@@ -31,12 +31,12 @@ audio{width:100%;margin-top:8px}
 <body>
 <div class="wrap">
 <section class="hero">
-<img class="cover" src="cover.jpg" alt="いいんじゃないの ジャケット">
+<img class="cover" src="../cover.jpg" alt="いいんじゃないの ジャケット">
 <div>
 <h1>いいんじゃないの</h1>
-<div class="artist">俺もあいつもこいつらも</div>
+<div class="artist">MUSAI</div>
 <button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
-<div class="meta">1曲　·　4分14秒</div>
+<div class="meta">1曲　·　3分24秒</div>
 <div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：SUNO</div>
 </div>
 </section>
@@ -58,75 +58,73 @@ audio{width:100%;margin-top:8px}
 </div>
 </section>
 <div class="player">
-<div class="time"><span id="cur">0:00</span><span>4:14</span></div>
+<div class="time"><span id="cur">0:00</span><span>3:24</span></div>
 <audio id="audio" controls preload="metadata"><source src="いいんじゃないの.mp3" type="audio/mpeg"></audio>
 </div>
 </div>
 <script>
-const lrc = `[00:06.3]野球場に二塁がねえのは
-[00:11.8]砂場の滑り台があるから
-[00:17.7]そんでさ、二塁フライはホームラン
-[00:23.0]取りに行った頃にはホームイン
-[00:28.7]公園の外に おでん屋がね
-[00:34.2]屋台を引いて来て みせ出して
-[00:39.8]そんでさ、お客様は小学生
-[00:45.4]親父一杯つけろなんて言ってねえよ
-[00:51.2]いい加減なところはあったけど
-[00:56.3]いつも大人が見ててくれて
-[01:01.6]夕方のベンチで
-[01:05.5]名前を呼ばれたかも
-[01:10.0]俺もあいつもこいつらも
-[01:12.9]神田公園で生まれて
-[01:15.8]俺もあいつもこいつらも
-[01:18.7]そりゃ　いいんじゃないの
-[01:22.4]俺もあいつもこいつらも
-[01:25.3]神田公園で育って
-[01:28.2]俺もあいつもこいつらも
-[01:31.1]そりゃ　いいんじゃないの
-[01:38.0]ブランコのきしむ音の中
-[01:43.0]砂だらけでも笑ってた
-[01:48.0]ケイドロで転んだ日も
-[01:53.0]擦りむいた膝が勲章だった
-[01:58.0]プロ野球スナック分け合って
-[02:03.0]缶蹴りのあとで汗を拭き
-[02:08.0]怒られても腹をすかせて
-[02:13.0]また明日もここでゴロベース
-[02:19.0]ふらついてるうちに
-[02:23.5]おっきくなっちまった
-[02:28.0]気づけばみんなで
-[02:32.5]同じ景色を見てた
-[02:37.0]俺もあいつもこいつらも
-[02:40.0]神田公園で生まれて
-[02:43.0]俺もあいつもこいつらも
-[02:46.0]そりゃ　いいんじゃないの
-[02:49.5]俺もあいつもこいつらも
-[02:52.5]神田公園で育って
-[02:55.5]俺もあいつもこいつらも
-[02:58.5]そりゃ　いいんじゃないの
-[03:06.0]遠回りばかりでも
-[03:10.0]交番を曲がれば
-[03:14.0]笑い声がまだ残ってる
-[03:18.0]銀杏の匂いがする
-[03:24.0]しばらく会ってなくたって
-[03:28.5]顔見りゃわかるだろ
-[03:33.0]あの日のままの目で
-[03:37.5]今もここを歩いてる
-[03:43.0]俺もあいつもこいつらも
-[03:46.0]神田公園で生まれて
-[03:49.0]俺もあいつもこいつらも
-[03:52.0]そりゃ　いいんじゃないの
-[03:55.5]俺もあいつもこいつらも
-[03:58.5]神田公園で育って
-[04:01.5]俺もあいつもこいつらも
-[04:04.5]そりゃ　いいんじゃないの
-`;
+const lrc = `[00:07.0]行くぜ
+[00:22.0]ロッカーってさ
+[00:24.0]本当はね
+[00:26.0]チョット違うんだよね
+[00:29.0]ギターに電球つけるって
+[00:33.0]ステージでね
+[00:36.0]ライダーってさ
+[00:38.0]本当はね
+[00:40.0]チョット違うんだよね
+[00:42.0]レーシングスーツ着込んで
+[00:47.0]アメリカン
+[00:51.0]カッコいいかって
+[00:53.0]聞かれても
+[00:55.0]なんて言ったらいいのさ
+[00:58.0]還暦超えたおじいちゃんに
+[01:02.0]そりゃあんた失礼さ
+[01:05.0]いいんじゃないの
+[01:07.0]そんなこと
+[01:09.0]自分の気分が良ければ
+[01:12.0]いいんじゃないの
+[01:14.0]そんなこと
+[01:16.0]見てくれよりも中身でしょ
+[01:19.0]いいんじゃないの
+[01:21.0]そんなこと
+[01:23.0]前はタノキンよりモテたって
+[01:27.0]いいんじゃないの
+[01:29.0]そんなこと
+[01:49.0]サーファーってさ
+[01:51.0]本当はね
+[01:53.0]チョット違うんだよね
+[01:56.0]短いボード抱えて
+[02:00.0]おばちゃんナンパして
+[02:03.0]スキーヤーってね
+[02:05.0]本当はね
+[02:07.0]チョット違うんだよね
+[02:11.0]サングラスかけてるって
+[02:14.0]吹雪いてるのにね
+[02:17.0]カッコいいかって
+[02:19.0]聞かれても
+[02:21.0]なんて言ったらいいのさ
+[02:24.0]還暦超えたおじいちゃんに
+[02:28.0]そりゃあんた失礼さ
+[02:31.0]いいんじゃないの
+[02:33.0]そんなこと
+[02:35.0]自分の気分が良ければ
+[02:39.0]いいんじゃないの
+[02:40.0]そんなこと
+[02:42.0]見てくれよりも中身でしょ
+[02:46.0]いいんじゃないの
+[02:48.0]そんなこと
+[02:50.0]モニカの兄さんより決めてたって
+[02:53.0]いいんじゃないの
+[02:55.0]そんなこと
+[03:00.0]そんなこと`;
 const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
 const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
 rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
 let active=-1;
+const hasTiming=rows.some(r=>r.t>0);
 audio.addEventListener('timeupdate',()=>{
  document.getElementById('cur').textContent=new Date(audio.currentTime*1000).toISOString().substr(14,5);
- let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
+ let n=-1;if(hasTiming){for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;}
  if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
  if(n>=0){const e=box.children[n];e?.scrollIntoView({behavior:'smooth',block:'center'})}}
 });
