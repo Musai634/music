@@ -30,8 +30,6 @@ audio{width:100%;margin-top:8px}
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="../">← 坪さん歌</a>
-
 <section class="hero">
 <img class="cover" src="../cover.jpg" alt="いいんじゃないの ジャケット">
 <div>
@@ -40,6 +38,7 @@ audio{width:100%;margin-top:8px}
 <button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
 <div class="meta">1曲　·　3分24秒</div>
 <div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：SUNO</div>
+<a class="album-link" href="../">← 坪さん歌</a>
 </div>
 </section>
 <section class="content">
@@ -60,7 +59,7 @@ audio{width:100%;margin-top:8px}
 </div>
 </section>
 <div class="player">
-<div class="time"><span id="cur">0:00</span><span>3:24</span></div>
+<div class="time"><span id="cur">0:00</span><span>3分24秒</span></div>
 <audio id="audio" controls preload="metadata"><source src="いいんじゃないの.mp3" type="audio/mpeg"></audio>
 </div>
 </div>
@@ -123,10 +122,9 @@ const audio=document.getElementById('audio'), box=document.getElementById('lyric
 const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
 rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
 let active=-1;
-const hasTiming=rows.some(r=>r.t>0);
 audio.addEventListener('timeupdate',()=>{
  document.getElementById('cur').textContent=new Date(audio.currentTime*1000).toISOString().substr(14,5);
- let n=-1;if(hasTiming){for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;}
+ let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
  if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
  if(n>=0){const e=box.children[n];e?.scrollIntoView({behavior:'smooth',block:'center'})}}
 });
