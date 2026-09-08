@@ -6,32 +6,47 @@
 <title>坪さん歌 — MUSAI</title>
 <meta name="description" content="坪さん歌 — MUSAI">
 <style>
-:root{--green:#238b45;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
+:root{--red:#238b45;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
 .wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
 .hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
-.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
-h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--green);margin-bottom:24px}
-.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
-.credits{line-height:1.8;margin-top:18px}.album-link{display:inline-block;margin-top:14px;color:var(--green);text-decoration:none;font-weight:700}
-.download{display:inline-block;margin-top:12px;color:var(--text);text-decoration:none}
-.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white;margin-top:38px}
-.card h2{font-size:21px;margin:0 0 20px}.lyrics{line-height:1.75}.line{font-size:21px;color:#aaa;padding:3px 0}.line.active{color:var(--text);font-weight:700}
-.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
-.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}audio{width:100%;margin-top:8px}
-@media(max-width:760px){.wrap{padding:18px}.hero{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.player{margin:22px -18px -18px;padding:12px 18px}}
+.cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;box-shadow:0 12px 30px #0002}
+h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
+.tagline{font-size:17px;line-height:1.9;color:#555}
+.content{margin-top:38px}
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
+.card h2{font-size:21px;margin:0 0 20px}
+.track{display:flex;align-items:center;gap:16px;padding:16px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--text)}
+.track:first-of-type{border-top:0}
+.num{color:var(--muted);width:32px}
+.track-title{flex:1;font-size:17px}
+.duration{color:var(--muted);font-size:14px;min-width:48px;text-align:right}
+.play{color:var(--red);font-size:14px;width:18px;text-align:right}
+.back{display:inline-block;margin-top:24px;padding:11px 20px;border-radius:22px;background:var(--red);color:white;text-decoration:none;font-weight:700}
+footer{text-align:center;color:#999;font-size:13px;margin-top:34px}
+@media(max-width:760px){.wrap{padding:18px}.hero{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.content{margin-top:28px}.track-title{font-size:16px}}
 </style>
 </head>
 <body><div class="wrap">
 <section class="hero">
-<img class="cover" src="cover.jpg" alt="坪さん歌 ジャケット">
+<img class="cover" src="cover.jpg" alt="坪さん歌 album jacket">
 <div><h1>坪さん歌</h1><div class="artist">MUSAI</div>
-<div class="meta">2曲</div>
-<div class="credits">俺とお前とあいつらの賛歌</div>
-<a class="album-link" href="../">← Musai Music Maison</a></div>
+<div class="tagline">俺とお前とあいつらの賛歌</div>
+<a class="back" href="../">← Musai Music Maison</a></div>
 </section>
-<div class="card">
-<h2>TRACKS</h2>
-<a class="track" href="未定義/"><b>01</b>　未定義　→</a><br><a class="track" href="いいんじゃないの/"><b>02</b>　いいんじゃないの -フィクションです　→</a>
-</div>
+<section class="content"><div class="card"><h2>Tracks</h2>
+<a class="track" href="未定義/">
+<span class="num">01</span>
+<span class="track-title">未定義</span>
+<span class="duration">3:06</span>
+<span class="play">▶</span>
+</a><a class="track" href="いいんじゃないの/">
+<span class="num">02</span>
+<span class="track-title">いいんじゃないの -フィクションです</span>
+<span class="duration">3:25</span>
+<span class="play">▶</span>
+</a>
+</div></section>
+<footer>Music by MUSAI</footer>
 </div></body></html>
