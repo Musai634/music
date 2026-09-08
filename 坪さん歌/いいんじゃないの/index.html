@@ -1,137 +1,83 @@
 <!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>いいんじゃないの -フィクションです — MUSAI</title>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>いいんじゃないの -フィクションです</title>
 <style>
-:root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
-.wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
-.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
-.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
-h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
-button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:pointer}
-.play{background:var(--red);color:white;font-size:17px}.sub{background:#eee;margin-left:8px}
-.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
-.credits{line-height:1.8;margin-top:18px}
-.content{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:38px}
-.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
-.card h2{font-size:21px;margin:0 0 20px}
-.lyrics{height:570px;overflow:auto;scroll-behavior:smooth}
-.line{font-size:21px;line-height:1.75;color:#aaa;padding:3px 0;transition:.18s}
-.line.active{color:var(--text);font-weight:700;transform:scale(1.01);transform-origin:left}
-.note{font-size:17px;line-height:1.9}
-.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
-.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-audio{width:100%;margin-top:8px}
-@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<section class="hero">
-<img class="cover" src="../cover.jpg" alt="いいんじゃないの -フィクションです ジャケット">
-<div>
+body{margin:0;background:#f7f7f8;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;background:#fff;min-height:100vh;padding:34px}
+.back{color:#111;text-decoration:none;font-weight:600} h1{font-size:36px;margin:24px 0 8px}
+.artist,.meta{color:#666} .audio{background:#f5f5f7;border-radius:16px;padding:18px;margin:24px 0}
+audio{width:100%} .card{margin-top:30px;padding:24px;background:#f7f7f8;border-radius:16px}
+.lyric{font-size:20px;line-height:1.7;padding:2px 0} .active{font-weight:700}
+@media(max-width:700px){.wrap{padding:20px}h1{font-size:30px}}
+</style></head><body><div class="wrap">
+<a class="back" href="../">← 坪さん歌</a>
 <h1>いいんじゃないの -フィクションです</h1>
 <div class="artist">MUSAI</div>
-<button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
-<div class="meta">1曲　·　約3分25秒</div>
-<div class="credits">作詞：久保田健嗣<br>作曲：長谷川斉<br>編曲・演奏：AI</div>
-<a class="album-link" href="../">← 坪さん歌</a>
-</div>
-</section>
-<section class="content">
-<div class="card">
-<h2>歌詞</h2>
-<div class="lyrics" id="lyrics"></div>
-</div>
-<div>
-<div class="card">
-<h2>エディターのメモ</h2>
-<p class="note">かっこいいあいつを、ちょっと羨むソング。</p>
-</div>
-<div class="card" style="margin-top:24px">
-<h2>音源</h2>
-<p class="note">高音質MP3（320kbps）を使用しています。</p>
-<a href="いいんじゃないの.mp3" download>MP3をダウンロード</a>
-</div>
-</div>
-</section>
-<div class="player">
-<div class="time"><span id="cur">0:00</span><span>約3分25秒</span></div>
-<audio id="audio" controls preload="metadata"><source src="いいんじゃないの.mp3" type="audio/mpeg"></audio>
-</div>
+<div class="audio"><audio id="audio" controls preload="metadata"><source src="いいんじゃないの.mp3" type="audio/mpeg"></audio>
+<br><a href="いいんじゃないの.mp3" download>MP3をダウンロード</a></div>
+<div class="meta">作詞：久保田健嗣<br>作曲：長谷川斉<br>編曲・演奏：AI</div>
+<div class="card"><strong>Editor's Memo</strong><p>かっこいいあいつを、ちょっと羨むソング。</p></div>
+<h2>Lyrics</h2><div id="lyrics"></div>
 </div>
 <script>
-const lrc = `[00:00.0]行くぜ
-[00:00.0]ロッカーってさ
-[00:00.0]本当はね
-[00:00.0]チョット違うんだよね
-[00:00.0]体に電気つけるって
-[00:00.0]ステージでね
-[00:00.0]ライダーってさ
-[00:00.0]本当はね
-[00:00.0]チョット違うんだよね
-[00:00.0]足がとどかないって
-[00:00.0]道路にさ
-[00:00.0]カッコいいかって
-[00:00.0]聞かれても
-[00:00.0]なんて言ったらいいのさ
-[00:00.0]還暦超えたおじいちゃんに
-[00:00.0]そりゃあんた失礼さ
-[00:00.0]いいんじゃないの
-[00:00.0]そんなこと
-[00:00.0]自分の気分が良ければ
-[00:00.0]いいんじゃないの
-[00:00.0]そんなこと
-[00:00.0]見てくれよりも中身でしょ
-[00:00.0]いいんじゃないの
-[00:00.0]そんなこと
-[00:00.0]昔はジッタさんよりモテたって
-[00:00.0](いいんじゃないの)
-[00:00.0](そんなこと)
-[00:00.0]サーファーってさ
-[00:00.0]本当はね
-[00:00.0]チョット違うんだよね
-[00:00.0]短いボード抱えて
-[00:00.0]おばちゃんナンパして
-[00:00.0]スキーヤーってね
-[00:00.0]本当はね
-[00:00.0]チョット違うんだよね
-[00:00.0]サングラスかけてるって
-[00:00.0]吹雪いてるのにね
-[00:00.0]カッコいいかって
-[00:00.0]聞かれても
-[00:00.0]なんて言ったらいいのさ
-[00:00.0]還暦超えたおじいちゃんに
-[00:00.0]そりゃあんた失礼さ
-[00:00.0]いいんじゃないの
-[00:00.0]そんなこと
-[00:00.0]自分の気分が良ければ
-[00:00.0]いいんじゃないの
-[00:00.0]そんなこと
-[00:00.0]見てくれよりも中身でしょ
-[00:00.0]いいんじゃないの
-[00:00.0]そんなこと
-[00:00.0]昔はかずふみより決めてたって
-[00:00.0](いいんじゃないの)
-[00:00.0](そんなこと)`;
-const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
-const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
-rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
-let active=-1;
-const hasTiming=rows.some(r=>r.t>0);
-audio.addEventListener('timeupdate',()=>{
- document.getElementById('cur').textContent=new Date(audio.currentTime*1000).toISOString().substr(14,5);
- let n=-1;if(hasTiming){for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;}
- if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
- if(n>=0){const e=box.children[n];e?.scrollIntoView({behavior:'smooth',block:'center'})}}
-});
-document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
-document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
-audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
-audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
-</script>
-</body>
-</html>
+const lyrics=[
+{time:7,text:'行くぜ'},
+{time:22,text:'ロッカーってさ'},
+{time:24,text:'本当はね'},
+{time:26,text:'チョット違うんだよね'},
+{time:29,text:'ギターに電球つけるって'},
+{time:33,text:'ステージでね'},
+{time:36,text:'ライダーってさ'},
+{time:38,text:'本当はね'},
+{time:40,text:'チョット違うんだよね'},
+{time:42,text:'レーシングスーツ着込んで'},
+{time:47,text:'アメリカン'},
+{time:51,text:'カッコいいかって'},
+{time:53,text:'聞かれても'},
+{time:55,text:'なんて言ったらいいのさ'},
+{time:58,text:'還暦超えたおじいちゃんに'},
+{time:62,text:'そりゃあんた失礼さ'},
+{time:65,text:'いいんじゃないの'},
+{time:67,text:'そんなこと'},
+{time:69,text:'自分の気分が良ければ'},
+{time:72,text:'いいんじゃないの'},
+{time:74,text:'そんなこと'},
+{time:76,text:'見てくれよりも中身でしょ'},
+{time:79,text:'いいんじゃないの'},
+{time:81,text:'そんなこと'},
+{time:83,text:'前はタノキンよりモテたって'},
+{time:87,text:'いいんじゃないの'},
+{time:89,text:'そんなこと'},
+{time:109,text:'サーファーってさ'},
+{time:111,text:'本当はね'},
+{time:113,text:'チョット違うんだよね'},
+{time:116,text:'短いボード抱えて'},
+{time:120,text:'おばちゃんナンパして'},
+{time:123,text:'スキーヤーってね'},
+{time:125,text:'本当はね'},
+{time:127,text:'チョット違うんだよね'},
+{time:131,text:'サングラスかけてるって'},
+{time:134,text:'吹雪いてるのにね'},
+{time:137,text:'カッコいいかって'},
+{time:139,text:'聞かれても'},
+{time:141,text:'なんて言ったらいいのさ'},
+{time:144,text:'還暦超えたおじいちゃんに'},
+{time:148,text:'そりゃあんた失礼さ'},
+{time:151,text:'いいんじゃないの'},
+{time:153,text:'そんなこと'},
+{time:155,text:'自分の気分が良ければ'},
+{time:159,text:'いいんじゃないの'},
+{time:160,text:'そんなこと'},
+{time:162,text:'見てくれよりも中身でしょ'},
+{time:166,text:'いいんじゃないの'},
+{time:168,text:'そんなこと'},
+{time:170,text:'モニカの兄さんより決めてたって'},
+{time:173,text:'いいんじゃないの'},
+{time:175,text:'そんなこと'},
+{time:180,text:'そんなこと'}
+];
+const audio=document.getElementById("audio"), box=document.getElementById("lyrics");
+lyrics.forEach(x=>{const d=document.createElement("div");d.className="lyric";d.textContent=x.text;box.appendChild(d)});
+const els=[...document.querySelectorAll(".lyric")];
+audio.addEventListener("timeupdate",()=>{let n=-1;lyrics.forEach((x,i)=>{if(audio.currentTime>=x.time)n=i});els.forEach((e,i)=>e.classList.toggle("active",i===n))});
+</script></body></html>
