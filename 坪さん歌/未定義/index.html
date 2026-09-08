@@ -4,15 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>未定義 — MUSAI</title>
-<meta name="description" content="未定義 — MUSAI">
-<meta property="og:type" content="music.song">
-<meta property="og:title" content="未定義 — MUSAI">
-<meta property="og:description" content="ALIS ULTRA FINES — With wings beyond the boundaries.">
-<meta property="og:image" content="https://music.akasakahasegawa.com/alis-ultra-fines/cover.jpg">
-<meta property="og:image:alt" content="ALIS ULTRA FINES album jacket">
-<meta property="og:url" content="https://music.akasakahasegawa.com/坪さん歌/未定義/">
 <style>
-
 :root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
 .wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
@@ -34,24 +26,18 @@ button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:poin
 .seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
 audio{width:100%;margin-top:8px}
 @media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
-
-.album-link{display:inline-block;margin-top:14px;color:var(--red);text-decoration:none;font-weight:700}
-.download{display:inline-block;margin-top:12px;color:var(--text);text-decoration:none}
-@media(max-width:760px){.cover{max-width:100%;width:100%;height:auto}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <section class="hero">
-<img class="cover" src="../cover.jpg" alt="ALIS ULTRA FINES ジャケット">
+<img class="cover" src="../cover.jpg" alt="未定義 ジャケット">
 <div>
 <h1>未定義</h1>
 <div class="artist">MUSAI</div>
 <button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
-<div class="meta">1曲　·　約3分</div>
-<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：Suno</div>
-<a class="album-link" href="../">← 坪さん歌</a><br>
-<a class="download" href="未定義.mp3" download>MP3をダウンロード</a>
+<div class="meta">1曲　·　3:06</div>
+<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：SUNO</div>
 </div>
 </section>
 <section class="content">
@@ -61,13 +47,18 @@ audio{width:100%;margin-top:8px}
 </div>
 <div>
 <div class="card">
-<h2>坪さん歌</h2>
-<p class="note">俺とお前とあいつらの賛歌</p>
+<h2>エディターのメモ</h2>
+<p class="note">シワと白髪、雪と波と排気ガス。長い時間を一緒に過ごしてきた仲間を、笑いと少しの負け惜しみを交えて歌う。</p>
+</div>
+<div class="card" style="margin-top:24px">
+<h2>音源</h2>
+<p class="note">高音質MP3（320kbps）を使用しています。</p>
+<a href="未定義.mp3" download>MP3をダウンロード</a>
 </div>
 </div>
 </section>
 <div class="player">
-<div class="time"><span id="cur">0:00</span><span>3:??</span></div>
+<div class="time"><span id="cur">0:00</span><span>3:06</span></div>
 <audio id="audio" controls preload="metadata"><source src="未定義.mp3" type="audio/mpeg"></audio>
 </div>
 </div>
@@ -96,21 +87,15 @@ const lrc = `[00:31.0]横に座るお前の　
 [02:24.0]踊ろうぜもっと
 [02:28.0]夢を描こうぜもっと　
 [02:31.0]俺たちは未定義`;
-
 const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
 const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
 rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
 let active=-1;
-audio.addEventListener('loadedmetadata',()=>{
- const dur=audio.duration; const m=Math.floor(dur/60); const s=Math.floor(dur%60).toString().padStart(2,'0');
- document.querySelector('.time span:last-child').textContent=m+':'+s;
-});
 audio.addEventListener('timeupdate',()=>{
- const m=Math.floor(audio.currentTime/60), s=Math.floor(audio.currentTime%60).toString().padStart(2,'0');
- document.getElementById('cur').textContent=m+':'+s;
+ document.getElementById('cur').textContent=new Date(audio.currentTime*1000).toISOString().substr(14,5);
  let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
  if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
- if(n>=0)box.children[n]?.scrollIntoView({behavior:'smooth',block:'center'});}
+ if(n>=0){const e=box.children[n];e?.scrollIntoView({behavior:'smooth',block:'center'})}}
 });
 document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
 document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
