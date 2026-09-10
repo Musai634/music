@@ -26,6 +26,7 @@ button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:poin
 .seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
 audio{width:100%;margin-top:8px}
 @media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
+.floating-brand{position:fixed;right:24px;bottom:122px;z-index:10;display:block;width:144px;line-height:0}.floating-brand img{display:block;width:100%;height:auto}@media(max-width:760px){.floating-brand{right:14px;bottom:104px;width:116px}}
 </style>
 </head>
 <body>
@@ -103,5 +104,6 @@ document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()
 audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
 audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
 </script>
+<a class="floating-brand" href="../../" aria-label="Musai Music Maison トップページ"><img src="../../musai-boar-float-final.png" alt=""></a>
 </body>
 </html>
