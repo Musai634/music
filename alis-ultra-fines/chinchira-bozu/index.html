@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>チンチラ坊主 — MUSAI</title>
+<style>
+:root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
+.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
+.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
+h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
+button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:pointer}
+.play{background:var(--red);color:white;font-size:17px}.sub{background:#eee;margin-left:8px}
+.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
+.credits{line-height:1.8;margin-top:18px}.album-link{display:block;margin-top:10px}
+.content{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:38px}
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
+.card h2{font-size:21px;margin:0 0 20px}
+.lyrics{height:570px;overflow:auto;scroll-behavior:smooth}
+.line{font-size:21px;line-height:1.75;color:#aaa;padding:3px 0;transition:.18s}
+.line.active{color:var(--text);font-weight:700;transform:scale(1.01);transform-origin:left}
+.note{font-size:17px;line-height:1.9}
+.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+audio{width:100%;margin-top:8px}
+@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<img class="cover" src="../cover.jpg" alt="チンチラ坊主 ジャケット">
+<div>
+<h1>チンチラ坊主</h1>
+<div class="artist">MUSAI</div>
+<button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
+<div class="meta">1曲　·　0:34</div>
+<div class="credits">作詞・作曲：MUSAI<br>編曲・演奏：SUNO</div>
+<a class="album-link" href="../">← ALIS ULTRA FINES</a>
+</div>
+</section>
+<section class="content">
+<div class="card">
+<h2>歌詞</h2>
+<div class="lyrics" id="lyrics"></div>
+</div>
+<div>
+<div class="card">
+<h2>エディターのメモ</h2>
+<p class="note">元気に生まれてきた君の雄叫び</p>
+</div>
+<div class="card" style="margin-top:24px">
+<h2>音源</h2>
+<p class="note">高音質MP3（320kbps）を使用しています。</p>
+<a href="チンチラ坊主.mp3" download>MP3をダウンロード</a>
+</div>
+</div>
+</section>
+<div class="player">
+<div class="time"><span id="cur">0:00</span><span>0:34</span></div>
+<audio id="audio" controls preload="metadata"><source src="チンチラ坊主.mp3" type="audio/mpeg"></audio>
+</div>
+</div>
+<script>
+const lrc = `[00:00.0]チンチラ坊主のあきらちゃん
+[00:04.0]あーきら　こぶーぶ
+[00:08.0]あっち向いて、こっち向いて、あきらちゃん
+[00:11.0]あーきらちゃん
+[00:14.0]あえあえー　あえあえー
+[00:18.0]おたけびは　高く
+[00:23.0]チンチラ坊主のあきらちゃん
+[00:27.0]あーきらちゃん　
+[00:29.0]こぶーぶ`;
+const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
+const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
+rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
+let active=-1;
+audio.addEventListener('timeupdate',()=>{
+ document.getElementById('cur').textContent=new Date(audio.currentTime*1000).toISOString().substr(14,5);
+ let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
+ if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
+ if(n>=0){const e=box.children[n];e?.scrollIntoView({behavior:'smooth',block:'center'})}}
+});
+document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
+document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
+audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
+audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
+</script>
+</body>
+</html>
