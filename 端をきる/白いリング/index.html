@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>白いリング — 未来公論</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="白いリング — 未来公論 | Musai Music Maison">
+<meta property="og:description" content="未来公論「白いリング」— Musai Music Maison。">
+<meta property="og:image" content="https://music.akasakahasegawa.com/端をきる/cover.jpg">
+<meta property="og:url" content="https://music.akasakahasegawa.com/端をきる/白いリング/">
+<meta property="og:site_name" content="Musai Music Maison">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="白いリング — 未来公論 | Musai Music Maison">
+<meta name="twitter:description" content="未来公論「白いリング」— Musai Music Maison。">
+<meta name="twitter:image" content="https://music.akasakahasegawa.com/端をきる/cover.jpg">
+<style>
+:root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
+.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
+.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
+h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
+button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:pointer}
+.play{background:var(--red);color:white;font-size:17px}.sub{background:#eee;margin-left:8px}
+.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
+.credits{line-height:1.8;margin-top:18px}.album-link{display:inline-flex;align-items:center;justify-content:center;max-width:100%;margin-top:14px;padding:9px 15px;border:1px solid #b78a28;border-radius:22px;background:transparent;color:#8b6519;text-decoration:none;font-weight:700;font-size:14px;line-height:1.35;text-align:center;transition:background .18s,border-color .18s,color .18s}.album-link:hover{background:#fff8e6;border-color:#d3a43e;color:#60450f}
+.content{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:38px}
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
+.card h2{font-size:21px;margin:0 0 20px}
+.lyrics{height:570px;overflow:auto;scroll-behavior:smooth}
+.line{font-size:21px;line-height:1.75;color:#aaa;padding:3px 0;transition:.18s}
+.line:nth-child(4n+5){margin-top:1.75em}
+.line.active{color:var(--text);font-weight:700;transform:scale(1.01);transform-origin:left}
+.note{font-size:17px;line-height:1.9}
+.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+audio{width:100%;margin-top:8px}
+@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
+.floating-brand{position:fixed;right:24px;bottom:122px;z-index:10;display:block;width:144px;line-height:0}.floating-brand img{display:block;width:100%;height:auto}@media(max-width:760px){.floating-brand{right:14px;bottom:104px;width:116px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<img class="cover" src="../cover.jpg" alt="白いリング ジャケット">
+<div>
+<h1>白いリング</h1>
+<div class="artist">未来公論</div>
+<button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
+<div class="meta">1曲　·　3分44秒</div>
+<div class="credits">作詞：MUSAI<br>作曲：MUSAI + SUNO<br>編曲：MUSAI + SUNO</div>
+<a class="album-link" href="../">← 「端をきる」へ戻る</a>
+</div>
+</section>
+<section class="content">
+<div class="card">
+<h2>歌詞</h2>
+<div class="lyrics" id="lyrics"></div>
+</div>
+<div>
+<div class="card">
+<h2>エディターのメモ</h2>
+<p class="note">アルバム『端をきる』の5曲目。トレーディング・フロアを舞台に、競争と虚勢、鏡に映る自分を描く。</p>
+</div>
+<div class="card" style="margin-top:24px">
+<h2>音源</h2>
+<p class="note">MP3音源を使用しています。</p>
+<a href="白いリング.mp3" download>MP3をダウンロード</a>
+</div>
+</div>
+</section>
+<div class="player">
+<div class="time"><span id="cur">0:00</span><span>3分44秒</span></div>
+<audio id="audio" controls preload="metadata"><source src="白いリング.mp3" type="audio/mpeg"></audio>
+</div>
+</div>
+<script>
+const lrc = `[00:18.0]ロロピアーナの　スーツって
+[00:22.0]焼肉の匂い、抜けてないでしょ
+[00:26.0]大手町Bloomberg
+[00:28.0]着替えてくれないかな
+[00:33.0]車の鍵は　しまっておきな
+[00:37.0]知ってるよ　緑のアストンでしょ
+[00:41.0]アクセル踏むのは上手いけど
+[00:43.0]机の上に置いてどうすんの
+[00:48.0]スタイリッシュに　決めてるのは
+[00:52.0]あたしだけでしょ
+[00:54.0]でも鏡の先に　あるのはさ
+[00:58.0]my own testosterone
+[01:02.0]フロアーは白いリング
+[01:06.0]倒れてしまえば楽なのに
+[01:09.0]構えた拳をおろせずに
+[01:13.0]ゴングがなるのを待ってるの
+[01:46.0]ルクルトのレベルソって
+[01:50.0]つける奴　選ぶんじゃない
+[01:53.0]フレンチカフのイニシャル
+[01:56.0]袖からわざと見せながら
+[02:00.0]草食系の男子って
+[02:03.0]檻ん中じゃ、絶滅危惧種ね
+[02:07.0]時計に取り残されるやつは
+[02:10.0]この檻の中で、息してない
+[02:15.0]クラッシーに　流してるのは
+[02:19.0]あたしの見せかけ
+[02:21.0]でも鏡の先に　あるのはさ
+[02:25.0]my own testosterone
+[02:31.0]フロアーは白いリング
+[02:34.0]惰性で続ける　フットワーク
+[02:38.0]勝利が何かも　わからない
+[02:41.0]効いたパンチにだって　顎で挑発
+[02:45.0]フロアーは白いリング
+[02:49.0]倒れてしまえば楽なのに
+[02:53.0]構えた拳をおろせずに
+[02:56.0]ゴングがなるのを待ってるの`;
+const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
+const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
+rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
+let active=-1;
+audio.addEventListener('timeupdate',()=>{
+ document.getElementById('cur').textContent=new Date(audio.currentTime*1000).toISOString().substr(14,5);
+ let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
+ if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
+ if(n>=0){const e=box.children[n];e?.scrollIntoView({behavior:'smooth',block:'center'})}}
+});
+document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
+document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
+audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
+audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
+</script>
+<a class="floating-brand" href="../../" aria-label="Musai Music Maison トップページ"><img src="../../musai-boar-float-final.png" alt=""></a>
+</body>
+</html>
