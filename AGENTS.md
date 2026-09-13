@@ -17,14 +17,27 @@ production site unless the user explicitly requests a specific change.
 
 ## Song-page requirements
 
-- Put the album return link immediately below Credits, in the form
-  `← アルバム名`.
+- Put the album return link immediately below Credits as a secondary navigation
+  button, in the form `← 「アルバム名」へ戻る`. A plain text return link is
+  not permitted. Preserve the album page's existing primary return button for
+  the route back to Musai Music Maison.
 - Do not alter lyrics: preserve their wording, notation, line breaks, and
   repetitions exactly as supplied.
 - Do not change, correct, infer, or adjust user-specified lyric timings.
 - A song page must reference the album directory's `cover.jpg` via a relative
   path. Do not copy an album cover into a song directory.
 - Store each song's MP3 in that song's own directory.
+
+## Social sharing / OGP requirements
+
+- Every album page and song page must include one complete Open Graph set:
+  `og:type`, `og:title`, `og:description`, `og:image`, and `og:url`.
+- Use an absolute `https://` URL for every `og:image`. Album pages use their
+  album jacket; song pages use the jacket of their owning album.
+- Include matching Twitter Card metadata (`summary_large_image`, title,
+  description, and image) so LINE and other social or messaging applications
+  can produce an appropriate link card.
+- Treat OGP as a required deliverable whenever adding an album or song page.
 
 ## Repository and publishing safeguards
 
