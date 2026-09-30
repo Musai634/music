@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>湘南ミニバケ — 未来公論</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="湘南ミニバケ — 未来公論 | Musai Music Maison">
+<meta property="og:description" content="未来公論「湘南ミニバケ」— Musai Music Maison。">
+<meta property="og:image" content="https://music.akasakahasegawa.com/端をきる/cover.jpg">
+<meta property="og:url" content="https://music.akasakahasegawa.com/端をきる/湘南ミニバケ/">
+<meta property="og:site_name" content="Musai Music Maison">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="湘南ミニバケ — 未来公論 | Musai Music Maison">
+<meta name="twitter:description" content="未来公論「湘南ミニバケ」— Musai Music Maison。">
+<meta name="twitter:image" content="https://music.akasakahasegawa.com/端をきる/cover.jpg">
+<style>
+:root{--red:#fa2439;--text:#111;--muted:#777;--line:#ddd;--bg:#f7f7f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;background:white;min-height:100vh;padding:34px}
+.hero{display:grid;grid-template-columns:minmax(280px,460px) 1fr;gap:42px;align-items:center}
+.cover{width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;box-shadow:0 12px 30px #0002}
+h1{font-size:38px;margin:0 0 8px}.artist{font-size:24px;color:var(--red);margin-bottom:24px}
+button{border:0;border-radius:22px;padding:12px 24px;font-weight:700;cursor:pointer}
+.play{background:var(--red);color:white;font-size:17px}.sub{background:#eee;margin-left:8px}
+.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted)}
+.credits{line-height:1.8;margin-top:18px}.album-link{display:inline-flex;align-items:center;justify-content:center;max-width:100%;margin-top:14px;padding:9px 15px;border:1px solid #b78a28;border-radius:22px;background:transparent;color:#8b6519;text-decoration:none;font-weight:700;font-size:14px;line-height:1.35;text-align:center;transition:background .18s,border-color .18s,color .18s}.album-link:hover{background:#fff8e6;border-color:#d3a43e;color:#60450f}
+.content{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-top:38px}
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:white}
+.card h2{font-size:21px;margin:0 0 20px}
+.lyrics{height:570px;overflow:auto;scroll-behavior:smooth}
+.line{font-size:21px;line-height:1.75;color:#aaa;padding:3px 0;transition:.18s}
+.line:nth-child(4n+5){margin-top:1.75em}
+.line.active{color:var(--text);font-weight:700;transform:scale(1.01);transform-origin:left}
+.note{font-size:17px;line-height:1.9}
+.player{position:sticky;bottom:0;margin:28px -34px -34px;padding:15px 34px;background:#fffefeed;backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.seek{width:100%}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+audio{width:100%;margin-top:8px}
+@media(max-width:760px){.wrap{padding:18px}.hero,.content{grid-template-columns:1fr;gap:22px}h1{font-size:30px}.artist{font-size:20px}.lyrics{height:430px}.line{font-size:19px}.player{margin:22px -18px -18px;padding:12px 18px}}
+.floating-brand{position:fixed;right:24px;bottom:122px;z-index:10;display:block;width:144px;line-height:0}.floating-brand img{display:block;width:100%;height:auto}@media(max-width:760px){.floating-brand{right:14px;bottom:104px;width:116px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<img class="cover" src="../cover.jpg" alt="湘南ミニバケ ジャケット">
+<div>
+<h1>湘南ミニバケ</h1>
+<div class="artist">未来公論</div>
+<button class="play" id="play">▶ 再生</button><button class="sub" id="restart">↺ 最初から</button>
+<div class="meta">1曲　·　3分37秒</div>
+<div class="credits">作詞：MUSAI<br>作曲・編曲：　未来公論</div>
+<a class="album-link" href="../">← 「端をきる」へ戻る</a>
+</div>
+</section>
+<section class="content">
+<div class="card">
+<h2>歌詞</h2>
+<div class="lyrics" id="lyrics"></div>
+</div>
+<div>
+<div class="card">
+<h2>エディターのメモ</h2>
+<p class="note">アルバム『端をきる』の二曲目。週末の湘南と私たちの脱線。</p>
+</div>
+<div class="card" style="margin-top:24px">
+<h2>音源</h2>
+<p class="note">MP3音源を使用しています。</p>
+<a href="湘南ミニバケ.mp3" download>MP3をダウンロード</a>
+</div>
+</div>
+</section>
+<div class="player">
+<div class="time"><span id="cur">0:00</span><span>3分37秒</span></div>
+<audio id="audio" controls preload="metadata"><source src="湘南ミニバケ.mp3" type="audio/mpeg"></audio>
+</div>
+</div>
+<script>
+const lrc = `[00:16.0]三人半のセルフィー
+[00:20.0]ヨタヨタのサンデークルーザー
+[00:24.0]真っ黒なおじさん達は
+[00:28.0]海とこっちを見てる
+[00:32.0]波音と排気ガスに
+[00:35.0]挟まれたロコモーション
+[00:39.0]真っ白なお嬢さん達は
+[00:43.0]きっちりサンタンローション
+[00:47.0]シラス丼と
+[00:49.0]レモネード
+[00:50.0]このビーチシートで
+[00:53.0]夢の中へ落ちてく
+[00:58.0]私達のミニバケーション
+[01:02.0]見てくれ無視のアフタヌーン
+[01:06.0]メールも電話も置いて
+[01:09.0]潮の匂いととぼけた青空
+[01:44.0]三人半のデザート
+[01:47.0]踏切近くのフレンチ
+[01:51.0]真っ黒なおじさん達は
+[01:55.0]もう帰ったのかしら
+[01:59.0]江ノ電とエンジン音に
+[02:03.0]挟まれたロコモーション
+[02:07.0]真っ赤なお嬢さん達は
+[02:10.0]きっちりセレブレーション
+[02:15.0]バゲットと
+[02:17.0]シャルドネで
+[02:19.0]このままテーブルで
+[02:21.0]夢の中へ落ちそう
+[02:26.0]私達のミニバケーション
+[02:30.0]見てくれ無視のイブニング
+[02:34.0]メールも電話も要らない
+[02:37.0]笑い声と間抜けな星空
+[03:01.0]私達のミニバケーション
+[03:04.0]見てくれ無視のオールデイ
+[03:09.0]メールも電話も知りません
+[03:11.0]ほろ酔い気分と　のんきな太陽`;
+const audio=document.getElementById('audio'), box=document.getElementById('lyrics');
+const rows=lrc.trim().split('\n').map((s,i)=>{const m=s.match(/^\[(\d+):(\d+(?:\.\d+)?)\](.*)$/);return {t:+m[1]*60 + +m[2],text:m[3],i};});
+rows.forEach(r=>{const d=document.createElement('div');d.className='line';d.textContent=r.text;d.dataset.i=r.i;box.appendChild(d)});
+let active=-1;
+audio.addEventListener('timeupdate',()=>{
+ document.getElementById('cur').textContent=new Date(audio.currentTime*1000).toISOString().substr(14,5);
+ let n=-1;for(let i=0;i<rows.length;i++)if(audio.currentTime>=rows[i].t)n=i;
+ if(n!==active){active=n;document.querySelectorAll('.line').forEach((e,i)=>e.classList.toggle('active',i===n));
+ if(n>=0){const e=box.children[n];e?.scrollIntoView({behavior:'smooth',block:'center'})}}
+});
+document.getElementById('play').onclick=()=>audio.paused?audio.play():audio.pause();
+document.getElementById('restart').onclick=()=>{audio.currentTime=0;audio.play()};
+audio.addEventListener('play',()=>document.getElementById('play').textContent='❚❚ 停止');
+audio.addEventListener('pause',()=>document.getElementById('play').textContent='▶ 再生');
+</script>
+<a class="floating-brand" href="../../" aria-label="Musai Music Maison トップページ"><img src="../../musai-boar-float-final.png" alt=""></a>
+</body>
+</html>
